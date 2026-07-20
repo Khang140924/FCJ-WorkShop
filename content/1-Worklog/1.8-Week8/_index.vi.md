@@ -1,59 +1,42 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-22
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu hệ sinh thái các dịch vụ Trí tuệ nhân tạo tích hợp sẵn (Managed AI Services) trên AWS.
+* Tìm hiểu cơ chế vận hành và tính năng của Amazon Rekognition, Amazon Polly và Amazon Textract.
+* Thực hành phân tích hình ảnh, trích xuất dữ liệu biểu mẫu và chuyển đổi văn bản thành giọng nói trên giao diện AWS Console.
+* Nghiên cứu phương pháp tích hợp các dịch vụ Cloud AI vào ứng dụng phần mềm thông qua API và AWS SDK.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Nghiên cứu tổng quan hệ sinh thái dịch vụ Trí tuệ nhân tạo (AI) và Học máy (ML) trên AWS. <br> - Theo dõi video hướng dẫn demo thực tế và bài giảng về AI Services. | 22/06/2026   | 22/06/2026      | Youtube AWS Study Group |
+| 3   | - Tìm hiểu dịch vụ phân tích hình ảnh (Rekognition), tổng hợp giọng nói (Polly) và trích xuất tài liệu (Textract). <br> - Đọc tài liệu hướng dẫn kỹ thuật, cấu trúc Request/Response JSON của các API AI. | 23/06/2026   | 23/06/2026      | Platform Bootcamp |
+| 4   | - **Thực hành:** Thao tác trên giao diện Amazon Rekognition để phân tích đặc điểm khuôn mặt, phát hiện vật thể và kiểm duyệt nội dung hình ảnh. | 24/06/2026   | 24/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - **Thực hành:** Sử dụng Amazon Textract để trích xuất dữ liệu hóa đơn, biểu mẫu thành dạng có cấu trúc. <br> - Cấu hình Amazon Polly để chuyển văn bản thô thành tệp âm thanh (MP3). | 25/06/2026   | 25/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Tìm hiểu cấu trúc mã nguồn Backend mẫu (Java/PHP/Go) và cách thiết lập chứng thực (Credentials) để gọi API của AWS AI Services từ môi trường ứng dụng. | 26/06/2026   | 26/06/2026      | Platform Bootcamp |
 
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu rõ lợi ích của Managed AI Services: Cho phép lập trình viên Backend tích hợp nhanh chóng các tính năng thông minh mà không cần kiến thức chuyên sâu về toán học hay khoa học dữ liệu.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Nắm vững nguyên lý hoạt động cốt lõi của Amazon Rekognition (nhận diện hình ảnh), Amazon Polly (Text-to-Speech đa ngôn ngữ) và Amazon Textract (OCR tự động từ PDF/ảnh).
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Phân tích thành công đặc điểm khuôn mặt, vật thể và tự động kiểm duyệt hình ảnh thông qua môi trường thử nghiệm Amazon Rekognition.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Trích xuất chính xác thông tin từ tài liệu quét, hóa đơn sang định dạng dữ liệu có cấu trúc nhờ Amazon Textract.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Chuyển đổi thành công văn bản thành tệp tin âm thanh (MP3) với nhiều tùy chọn giọng đọc tự nhiên thông qua Amazon Polly.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Hiểu được cấu trúc mã nguồn Backend (Java/PHP/Go) cần thiết để thiết lập thông tin chứng thực và tích hợp gọi API của các dịch vụ Cloud AI.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Mở rộng tư duy phát triển phần mềm: Ứng dụng Cloud và AI để giải quyết bài toán thực tế của doanh nghiệp (như tự động hóa nhập liệu OCR, tăng cường UX).
 
-
+* Hình thành ý tưởng đột phá để tích hợp trực tiếp các dịch vụ AI này vào cấu trúc đồ án thực tập cuối kỳ sắp tới.

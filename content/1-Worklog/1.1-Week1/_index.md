@@ -24,8 +24,13 @@ pre: " <b> 1.1. </b> "
 ### Week 1 Achievements:
 
 * Mastered the definition of Cloud Computing and understood the core benefits when businesses migrate from traditional On-premises infrastructure to the AWS cloud platform.
+
 * Fully understood the Global Infrastructure architecture of AWS, successfully distinguishing the roles and connections between Regions, Availability Zones, and Edge Locations.
+
 * Acquired essential skills to manipulate, navigate, and exploit educational resources on the online learning Platform.
+
 * Successfully established a practice account and initial environment on the Hands-on system, fully prepared for deploying real AWS services in the upcoming weeks.
+
 * Grasped the professional working style, progress reporting regulations, and the self-paced learning culture characteristic of the AWS Bootcamp program.
+
 * Learned how to effectively utilize the AWS Study Group community channels to connect, raise questions, and seek technical support when encountering issues.

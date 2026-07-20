@@ -5,27 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# TỐI ƯU HÓA MÔI TRƯỜNG KIỂM THỬ VỚI AMAZON EKS VÀ VCLUSTER
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Vấn đề muôn thuở khi vận hành các dự án sử dụng Kubernetes là việc cấp phát môi trường kiểm thử (QA/Testing) thường quá chậm chạp và tốn kém. Trước đây, mỗi khi cần một môi trường độc lập để test ứng dụng, các team phải chờ đợi đội ngũ nền tảng (Platform team) dựng hẳn một cụm Amazon EKS riêng biệt. Quá trình này ngốn đến 30-45 phút, kéo theo sự lãng phí khủng khiếp về tài nguyên (mỗi cụm lại "cõng" thêm Load Balancer, DNS, monitoring riêng) và khiến chi phí hạ tầng AWS tăng vọt.
+Giải pháp triệt để cho vấn đề này đã được Deloitte áp dụng thành công: Kết hợp Amazon EKS (làm máy chủ nền tảng) và vCluster để tạo ra các cụm Kubernetes ảo (virtual clusters) siêu nhẹ, chạy chung trên một hạ tầng vật lý duy nhất.
 
 Các điểm chính cần nắm:
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Tốc độ triển khai "siêu tốc": Thời gian tạo mới một môi trường kiểm thử giảm từ 45 phút xuống dưới 5 phút (nhanh hơn 89%). Lập trình viên và QA có ngay không gian độc lập để làm việc mà không cần pha cà phê chờ đợi.
+* Vận hành tập trung, giảm thiểu rườm rà: Thay vì phải bảo trì hàng tá các công cụ (như Ingress controller, giám sát...) rải rác ở hàng chục cụm khác nhau, giờ đây tất cả dùng chung một bộ chia sẻ (shared stack) trên host cluster.
+* Cắt giảm chi phí hạ tầng cực lớn: Việc dùng chung tài nguyên gốc giúp tiết kiệm hàng chục vCPU và hàng trăm GB RAM. Thậm chí có thể tiết kiệm đến 70% chi phí khi kết hợp linh hoạt tính năng EKS Auto Mode và chạy trên các EC2 Spot Instances.
+* Trao quyền tự phục vụ (Self-service): Đội phát triển không còn bị phụ thuộc. Họ có thể tự "bấm nút" tạo môi trường Kubernetes ảo cho riêng mình trong vài phút, giúp giải phóng hoàn toàn sức lao động cho đội ngũ vận hành nền tảng.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+
 
 ...Hình ảnh...
 
-...Link...
+[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)
 
 ...Hướng dẫn...

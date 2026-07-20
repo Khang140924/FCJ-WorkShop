@@ -25,17 +25,25 @@ pre: " <b> 1.2. </b> "
 ### Kết quả đạt được tuần 2:
 
 * Phân định rõ ràng ranh giới bảo mật giữa AWS (Bảo mật của đám mây) và người dùng (Bảo mật trong đám mây) dựa trên Mô hình trách nhiệm chung.
+
 * Hiểu sâu về cơ chế vận hành của các thành phần cốt lõi trong IAM:
     * IAM User
     * IAM Group
     * Policy (phân quyền bằng JSON)
     * IAM Role
+
 * Nắm vững nguyên tắc cấp quyền tối thiểu (Principle of Least Privilege) trong quản trị và vận hành hệ thống.
+
 * Kích hoạt và cấu hình thành công tính năng xác thực hai lớp (MFA) cho tài khoản Root để ngăn chặn các nguy cơ chiếm quyền.
+
 * Tạo lập thành công các IAM User và IAM Group riêng biệt.
+
 * Viết và gắn các IAM Policy nhằm phân chia quyền hạn chuẩn xác thay vì lạm dụng tài khoản Root.
+
 * Khởi tạo thành công AWS Budgets, cấu hình ngưỡng cảnh báo chi phí qua email cá nhân để chủ động kiểm soát ngân sách và tránh phí phát sinh.
+
 * Hình thành tư duy "Security First" để xây dựng kiến trúc hệ thống an toàn ngay từ đầu.
+
 * Biết cách ứng dụng tư duy phân quyền cho ứng dụng Backend thông qua IAM Role thay vì nhúng trực tiếp Access Key vào mã nguồn một cách thủ công, giúp nâng cao tính bảo mật tuyệt đối cho dự án phần mềm.
 
 

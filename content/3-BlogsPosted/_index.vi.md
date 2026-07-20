@@ -1,22 +1,15 @@
 ---
 title: "Các bài blogs đã đăng"
-date: 2024-01-01
+date: 2026-06-30
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+###  [Blog 1 - TỰ ĐỘNG HÓA QUÁ TRÌNH TẢI HÓA ĐƠN AWS BẰNG PROGRAMMATIC API](3.1-Blog1/)
+Blog này giới thiệu giải pháp mới từ AWS thông qua các API lập trình (`list-invoice-summaries` và `get-invoice-pdf`) nhằm tự động hóa hoàn toàn quy trình tải và truy xuất hóa đơn. Đây là giải pháp giúp các quản lý tài chính và kỹ sư FinOps loại bỏ thao tác thủ công, quản lý tập trung chi phí đa tài khoản, dễ dàng tích hợp dữ liệu trực tiếp vào hệ thống ERP và tăng tốc độ chốt sổ cuối tháng.
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
-
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
-
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+###  [Blog 2 - TỐI ƯU HÓA MÔI TRƯỜNG KIỂM THỬ VỚI AMAZON EKS VÀ VCLUSTER](3.2-Blog2/)
+Blog này trình bày giải pháp kết hợp Amazon EKS và vCluster để tạo các cụm Kubernetes ảo siêu nhẹ, giúp giải quyết bài toán cấp phát môi trường kiểm thử (QA/Testing) chậm chạp và tốn kém. Giải pháp này giúp giảm thời gian tạo môi trường xuống dưới 5 phút, tối ưu hóa tài nguyên bằng cách vận hành tập trung, cắt giảm đến 70% chi phí hạ tầng và trao quyền tự phục vụ (self-service) linh hoạt cho các đội phát triển.
 
 ###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.

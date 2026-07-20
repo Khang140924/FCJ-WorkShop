@@ -1,59 +1,42 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-07-06
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiện thực hóa mã nguồn Backend cho dự án FinVantage theo mô hình kiến trúc không máy chủ (Serverless Architecture).
+* Cấu hình kết nối tập trung từ mã nguồn tới hệ sinh thái AWS (S3, Textract) và phân hệ cơ sở dữ liệu (Database) thông qua bộ thư viện AWS SDK.
+* Lập trình hoàn thiện luồng API xử lý dữ liệu: Tiếp nhận file, lưu trữ trên S3, trích xuất dữ liệu qua Textract và lưu trữ kết quả vào Database.
+* Sử dụng công cụ Git để quản lý phiên bản mã nguồn, thực hiện đóng gói và đẩy (push) commit hoàn chỉnh lên kho chứa trực tuyến GitHub.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Bắt tay vào giai đoạn hiện thực hóa mã nguồn cho phân hệ Backend của dự án FinVantage. <br> - Triển khai cấu trúc thư mục theo mô hình không máy chủ (Serverless). | 06/07/2026   | 06/07/2026      | Nhóm dự án |
+| 3   | - Viết các module cấu hình kết nối an toàn từ mã nguồn tới các dịch vụ cốt lõi thông qua bộ thư viện AWS SDK. | 07/07/2026   | 07/07/2026      | AWS Documentation |
+| 4   | - **Thực hành:** Lập trình API tiếp nhận tệp tin từ Client, tự động đẩy dữ liệu hóa đơn lên Amazon S3 Bucket bảo mật. | 08/07/2026   | 08/07/2026      | VS Code / Local Environment |
+| 5   | - **Thực hành:** Lập trình luồng xử lý gọi API Amazon Textract để đọc, trích xuất thông tin hóa đơn và chuẩn hóa dữ liệu dạng JSON. <br> - Viết hàm kết nối với Database để lưu trữ vĩnh viễn kết quả đã trích xuất. | 09/07/2026   | 09/07/2026      | VS Code / Local Environment |
+| 6   | - Sử dụng Git để kiểm soát phiên bản và đẩy (push) toàn bộ mã nguồn phân hệ lên kho chứa GitHub với commit "Hoàn thiện Backend Serverless: API, S3, Textract, Database". | 10/07/2026   | 10/07/2026      | GitHub |
 
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Củng cố sâu sắc kiến trúc Backend Serverless, hiểu rõ cách tổ chức mã nguồn để tối ưu hóa hiệu năng khi chạy trên môi trường đám mây thay vì các máy chủ truyền thống.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Nắm vững luồng dữ liệu (Data Flow) của một hệ thống xử lý tài liệu tự động: Từ lúc nhận tệp tin, lưu trữ, trích xuất dữ liệu bằng AI cho đến khi lưu trữ kết quả cuối cùng vào cơ sở dữ liệu.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hoàn thiện và đẩy (push) thành công toàn bộ mã nguồn phân hệ lên GitHub, thực hiện commit chính thức với nội dung "Hoàn thiện Backend Serverless: API, S3, Textract, Database".
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Hiện thực hóa thành công API tiếp nhận tệp tin từ Client, tự động đẩy (upload) dữ liệu hóa đơn lên Amazon S3 Bucket bảo mật.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Lập trình luồng xử lý gọi API Amazon Textract để tự động đọc và trích xuất thông tin từ hóa đơn, sau đó chuẩn hóa dữ liệu dạng JSON.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Viết thành công các hàm kết nối và tương tác với Database để lưu trữ vĩnh viễn các kết quả đã được trích xuất, sẵn sàng cung cấp dữ liệu cho phân hệ Generative AI (Amazon Bedrock).
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tích lũy kinh nghiệm thực tế quý báu trong việc hiện thực hóa các sơ đồ kiến trúc hạ tầng thành những dòng mã nguồn chạy được trong thực tế.
 
-
+* Nâng cao kỹ năng làm việc nhóm qua Git/GitHub, biết cách chia nhỏ công việc và tạo các commit rõ ràng, chuyên nghiệp đúng chuẩn môi trường doanh nghiệp.

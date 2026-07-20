@@ -1,31 +1,26 @@
 ---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-06-30
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# AUTOMATING AWS INVOICE DOWNLOADS USING PROGRAMMATIC APIs
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+The eternal problem for Finance Managers or FinOps Engineers on AWS is that retrieving invoices is too manual. If you are managing tens or hundreds of AWS accounts, each billing cycle feels like a torture: constantly logging into the console, manually downloading each PDF file, and then painstakingly entering data into the financial system. This approach not only consumes hours of repetitive work but also harbors numerous risks due to human error (such as missing downloads or incorrect file naming), making auditing and reporting difficult.
+A radical solution to this bottleneck has just been launched by AWS: Providing new programmatic APIs (`list-invoice-summaries` and `get-invoice-pdf`) to fully automate the invoice download and retrieval process.
 
-Key points to know:
+Key takeaways:
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* Multi-account consolidation: No need to log in and out of individual child accounts anymore. Now, you can write scripts to consolidate all invoices from departments/subsidiaries in a single billing cycle into one place, effortlessly creating unified chargeback reports.
+* Financial system integration: Invoice data can be automatically pushed directly into ERP systems, accounting software, or internal dashboards. You will have a real-time view of your entire organization's AWS costs without any manual data entry.
+* Automated compliance: Completely eliminate human error. Automated pipelines will download invoices, rename files according to proper standards, and securely store them in document management systems, ensuring all data is always ready for audits.
+* Accelerated month-end closure: This process can be scheduled to run automatically at the end of each month. Financial professionals are freed from tedious administrative tasks to focus on strategic cost optimization analysis.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
 
 ...Image...
 
-...Link...
+[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198776387553988/)
 
-...Guide...
+...Instructions...

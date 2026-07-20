@@ -1,57 +1,44 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-29
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Collaborate with the team to build the architecture for the FinVantage smart financial analysis system.
+* Research theory and configure the alert module using Amazon SNS and system monitoring via Amazon CloudWatch.
+* Take on the role of Member 4: Design the user feedback flow and manage the system diagram standards.
+* Use Draw.io and the AWS Icon set to synthesize and standardize the overall architecture diagram within the Region/VPC frame.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2   | - Collaborate with the team to deploy the FinVantage project using AWS and Generative AI technologies. <br> - Discuss with members to clarify the data flow from the entry point to the output alert layer. | 29/06/2026   | 29/06/2026      | Project Team |
+| 3   | - Research the theory and architecture of the Amazon SNS notification module and Amazon CloudWatch monitoring tool. <br> - Read the infrastructure diagram design standards document on Platform Bootcamp. | 30/06/2026   | 30/06/2026      | Platform Bootcamp & YouTube AWS Study Group |
+| 4   | - **Practice:** Design and configure the output notification module using Amazon SNS. <br> - Configure log filters and set up automated alert thresholds on Amazon CloudWatch. | 01/07/2026   | 01/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Use Draw.io combined with official AWS Icons to design and standardize the overall architecture diagram. | 02/07/2026   | 02/07/2026      | Draw.io |
+| 6   | - Align functional blocks, encapsulate all services within Region frames and VPC virtual networks, and accurately label each component. | 03/07/2026   | 03/07/2026      | Draw.io |
 
 
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Mastered the operational principles of the Amazon SNS notification service following the Publish/Subscribe architecture to automatically send Emails or SMS to users upon financial alerts.
 
-* Successfully created and configured an AWS Free Tier account.
+* Deeply understood the role of Amazon CloudWatch in collecting metrics, monitoring hardware performance, and timely detecting errors (logs) from AWS Lambda functions.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Grasped professional cloud infrastructure diagram design standards, including how to partition the system using the Amazon VPC virtual network frame, divide Subnet layers, and draw one-way arrows according to the correct data processing flow.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Successfully designed and configured the output notification module using Amazon SNS to send over-limit spending alerts or personalized financial advice to users' devices.
 
-* Used AWS CLI to perform basic operations such as:
+* Configured log filters and set up automated alert thresholds on Amazon CloudWatch to optimize system operations (Ops).
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Completed the overall architecture diagram for the FinVantage project on Draw.io; aligned functional blocks, and encapsulated all services within Region frames and VPC virtual networks according to design standards.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Accurately labeled each component in the diagram (e.g., assigning specific functional labels to processing Lambda functions) to make the diagram intuitive and readable.
+
+* Accumulated practical Teamwork experience in a technology project, knowing how to connect personal components with the work of other members to create a complete product.
+
+* Improved System Architecture Design mindset - an extremely advanced and valuable skill for a Backend Engineer / Cloud Engineer when entering large enterprise projects.

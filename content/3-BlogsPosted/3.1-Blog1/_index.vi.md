@@ -1,31 +1,26 @@
 ---
 title: "Blog 1"
-date: 2024-01-01
+date: 2026-06-30
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# TỰ ĐỘNG HÓA QUÁ TRÌNH TẢI HÓA ĐƠN AWS BẰNG PROGRAMMATIC API
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Vấn đề muôn thuở của các quản lý tài chính (Finance Manager) hay kỹ sư FinOps trên AWS là thao tác truy xuất hóa đơn quá thủ công. Nếu bạn đang quản lý hàng chục hay hàng trăm tài khoản AWS, mỗi kỳ thanh toán giống như một cực hình: phải đăng nhập console liên tục, tải từng file PDF một cách thủ công, rồi lại hì hục nhập liệu vào hệ thống tài chính. Cách làm này không chỉ ngốn hàng giờ đồng hồ làm việc rập khuôn mà còn tiềm ẩn vô số rủi ro do lỗi con người (như tải thiếu, đặt sai tên file), gây khó khăn cho quá trình kiểm toán và báo cáo.
+Giải pháp triệt để cho nút thắt này vừa được AWS ra mắt: Cung cấp các API lập trình mới (list-invoice-summaries và get-invoice-pdf) để tự động hóa hoàn toàn quy trình tải và truy xuất hóa đơn.
 
 Các điểm chính cần nắm:
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Quản lý tập trung đa tài khoản (Multi-account consolidation): Không cần phải login ra vào từng tài khoản con nữa. Giờ đây, bạn có thể viết script gom toàn bộ hóa đơn của các phòng ban/công ty con trong một chu kỳ thanh toán về chung một mối, tạo ra các báo cáo chargeback thống nhất một cách dễ dàng.
+* Tích hợp sâu vào hệ thống tài chính (Financial system integration): Dữ liệu hóa đơn có thể được tự động đẩy thẳng vào các hệ thống ERP, phần mềm kế toán hoặc dashboard nội bộ. Bạn sẽ có cái nhìn realtime về chi phí AWS của toàn tổ chức mà không cần bất kỳ thao tác nhập liệu bằng tay nào.
+* Chuẩn hóa quy trình tuân thủ (Automated compliance): Khắc phục triệt để sai sót của con người. Các pipeline tự động sẽ tải hóa đơn, đổi tên file theo đúng quy chuẩn và lưu trữ an toàn vào hệ thống quản lý tài liệu, đảm bảo mọi dữ liệu luôn sẵn sàng cho kiểm toán.
+* Tăng tốc chốt sổ cuối tháng (Accelerated month-end closure): Có thể lên lịch (schedule) để tiến trình này tự chạy vào cuối mỗi tháng. Các chuyên gia tài chính được giải phóng khỏi các công việc admin nhàm chán để tập trung vào phân tích chiến lược tối ưu chi phí.
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
 
 ...Hình ảnh...
 
-...Link...
+[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198776387553988/)
 
 ...Hướng dẫn...

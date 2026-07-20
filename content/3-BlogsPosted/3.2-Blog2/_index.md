@@ -5,27 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# OPTIMIZING TESTING ENVIRONMENTS WITH AMAZON EKS AND VCLUSTER
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+The eternal problem when operating projects using Kubernetes is that provisioning testing environments (QA/Testing) is often too slow and costly. Previously, whenever an independent environment was needed to test an application, teams had to wait for the Platform team to spin up an entirely separate Amazon EKS cluster. This process consumed up to 30-45 minutes, leading to a massive waste of resources (each cluster had to "carry" its own Load Balancer, DNS, and monitoring) and causing AWS infrastructure costs to skyrocket.
+A radical solution to this problem has been successfully applied by Deloitte: Combining Amazon EKS (as the platform server) and vCluster to create ultra-lightweight virtual Kubernetes clusters (virtual clusters) running together on a single physical infrastructure.
 
-Key points to know:
+Key takeaways:
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* "Lightning-fast" deployment speed: The time to create a new testing environment is reduced from 45 minutes to under 5 minutes (89% faster). Developers and QA immediately have an independent workspace without needing to brew a coffee while waiting.
+* Centralized operations, minimizing complexity: Instead of maintaining dozens of tools (like Ingress controllers, monitoring, etc.) scattered across dozens of different clusters, everything now uses a shared stack on the host cluster.
+* Massive infrastructure cost reduction: Sharing core resources saves tens of vCPUs and hundreds of GBs of RAM. It can even save up to 70% in costs when flexibly combined with the EKS Auto Mode feature and running on EC2 Spot Instances.
+* Empowering self-service: Development teams are no longer dependent. They can simply "press a button" to create their own virtual Kubernetes environments in minutes, completely freeing up the workload for the platform operations team.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+
 
 ...Image...
 
-...Link...
+[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)
 
-...Guide...
+...Instructions...

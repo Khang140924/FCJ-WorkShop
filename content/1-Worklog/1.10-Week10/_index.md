@@ -1,57 +1,42 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-06
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 10 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Implement the Backend source code for the FinVantage project based on the Serverless Architecture model.
+* Configure centralized connections from the source code to the AWS ecosystem (S3, Textract) and the Database module via the AWS SDK.
+* Fully program the data processing API flow: Receive files, store on S3, extract data via Textract, and store results in the Database.
+* Use Git for source code version control, package, and push complete commits to the GitHub online repository.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2   | - Begin the source code implementation phase for the Backend module of the FinVantage project. <br> - Deploy the directory structure according to the Serverless model. | 06/07/2026   | 06/07/2026      | Project Team |
+| 3   | - Write configuration modules for secure connections from the source code to core services via the AWS SDK. | 07/07/2026   | 07/07/2026      | AWS Documentation |
+| 4   | - **Practice:** Program the API to receive files from the Client and automatically upload invoice data to a secure Amazon S3 Bucket. | 08/07/2026   | 08/07/2026      | VS Code / Local Environment |
+| 5   | - **Practice:** Program the processing flow to call the Amazon Textract API to read, extract invoice information, and standardize data into JSON format. <br> - Write functions to connect with the Database to permanently store the extracted results. | 09/07/2026   | 09/07/2026      | VS Code / Local Environment |
+| 6   | - Use Git for version control and push the entire module source code to the GitHub repository with the commit "Complete Backend Serverless: API, S3, Textract, Database". | 10/07/2026   | 10/07/2026      | GitHub |
 
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Profoundly consolidated the Serverless Backend architecture, clearly understanding how to organize source code to optimize performance when running on a cloud environment instead of traditional servers.
 
-* Successfully created and configured an AWS Free Tier account.
+* Mastered the Data Flow of an automated document processing system: From receiving files, storing, extracting data using AI, to saving the final results into the database.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully completed and pushed the entire module source code to GitHub, making the official commit "Complete Backend Serverless: API, S3, Textract, Database".
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Successfully implemented the API to receive files from the Client and automatically upload invoice data to a secure Amazon S3 Bucket.
 
-* Used AWS CLI to perform basic operations such as:
+* Programmed the processing flow to call the Amazon Textract API to automatically read and extract information from invoices, then standardize the data in JSON format.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Successfully wrote functions to connect and interact with the Database to permanently store the extracted results, ready to provide data for the Generative AI module (Amazon Bedrock).
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Accumulated valuable practical experience in transforming infrastructure architecture diagrams into executable source code lines in reality.
+
+* Enhanced teamwork skills via Git/GitHub, knowing how to break down tasks and create clear, professional commits matching enterprise environment standards.

@@ -25,15 +25,23 @@ pre: " <b> 1.2. </b> "
 ### Week 2 Achievements:
 
 * Clearly delineated the security boundaries between AWS (Security of the Cloud) and the user (Security in the Cloud) based on the Shared Responsibility Model.
+
 * Deeply understood the operational mechanics of core IAM components:
     * IAM User
     * IAM Group
     * Policy (JSON role assignments)
     * IAM Role
+
 * Mastered the Principle of Least Privilege in system administration and operation.
+
 * Successfully activated and configured two-factor authentication (MFA) for the Root account to prevent hijacking risks.
+
 * Created distinct IAM Users and IAM Groups.
+
 * Wrote and attached IAM Policies to accurately assign usage permissions instead of abusing the Root account.
+
 * Successfully initialized AWS Budgets and configured cost alert thresholds via personal email to proactively control budgets and avoid unexpected charges.
+
 * Formed a "Security First" mindset for building safe system architectures right from the beginning.
+
 * Learned how to apply authorization via IAM Roles for backend applications instead of manually embedding Access Keys into the source code, enhancing absolute security for software projects.

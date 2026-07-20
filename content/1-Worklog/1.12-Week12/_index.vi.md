@@ -1,58 +1,35 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-07-20
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hiện rà soát, xem xét và đánh giá lại toàn bộ kiến trúc hạ tầng và mã nguồn của dự án.
+* Đúc kết kinh nghiệm, tổng hợp tài liệu từ các tuần trước.
+* Hoàn thành và đóng gói báo cáo thực tập tốt nghiệp cuối kỳ.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - **Rà soát dự án:** Xem xét và đối chiếu lại toàn bộ sơ đồ kiến trúc hạ tầng AWS với mã nguồn Backend Serverless đã triển khai thực tế. | 20/07/2026   | 20/07/2026      | Nhóm dự án & AWS Console |
+| 3   | - **Đánh giá hệ thống:** Đánh giá lại hiệu năng, tính bảo mật (IAM Roles, Security Groups) và tối ưu hóa chi phí cho toàn bộ hệ thống FinVantage. | 21/07/2026   | 21/07/2026      | AWS CloudWatch & Cost Explorer |
+| 4   | - **Tổng hợp tài liệu:** Thu thập lại toàn bộ nhật ký công việc (worklogs), hình ảnh minh chứng và sơ đồ Draw.io từ tuần 1 đến tuần 11. | 22/07/2026   | 22/07/2026      | GitHub & Local Environment |
+| 5   | - **Viết báo cáo:** Tiến hành biên soạn và trình bày nội dung Báo cáo thực tập tốt nghiệp theo đúng quy chuẩn format (định dạng) của nhà trường. | 23/07/2026   | 23/07/2026      | Quy định HUTECH |
+| 6   | - **Hoàn thiện:** Xin ý kiến góp ý, rà soát lỗi chính tả/ngữ pháp lần cuối, xuất file định dạng chuẩn (PDF/Word) và chính thức nộp báo cáo. | 24/07/2026   | 24/07/2026      | Mentor & Giảng viên hướng dẫn |
 
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Đã hoàn tất việc rà soát và đánh giá toàn diện kiến trúc dự án, đảm bảo hệ thống hoạt động ổn định, bảo mật và đáp ứng chính xác các yêu cầu kỹ thuật đề ra ban đầu.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Củng cố và hệ thống hóa lại toàn bộ kiến thức lý thuyết cũng như kỹ năng thực hành về AWS, Serverless và Generative AI đã tích lũy được trong suốt chặng đường 3 tháng thực tập.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hoàn thiện 100% tài liệu Báo cáo thực tập tốt nghiệp, trình bày mạch lạc, chuyên nghiệp và bám sát các tiêu chuẩn học thuật của HUTECH.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Chuẩn bị sẵn sàng tâm thế, tài liệu minh chứng và kỹ năng trình bày để tham gia bảo vệ kết quả thực tập trước công ty và hội đồng nhà trường.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Khép lại hành trình thực tập tại First Cloud AI Journey (FCAJ) một cách trọn vẹn, mở ra định hướng nghề nghiệp rõ ràng và tự tin hơn trên con đường trở thành một Backend/Cloud Engineer chuyên nghiệp.

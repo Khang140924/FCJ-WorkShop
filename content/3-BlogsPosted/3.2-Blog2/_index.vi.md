@@ -1,7 +1,7 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-06
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
@@ -20,8 +20,6 @@ Các điểm chính cần nắm:
 
 
 
-...Hình ảnh...
+![Bài Blog 2](/images/blog2.png)
 
-[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)
-
-...Hướng dẫn...
+[Đường Link dẫn đến bài Blog 2](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)

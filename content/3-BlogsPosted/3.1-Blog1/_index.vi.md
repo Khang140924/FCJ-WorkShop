@@ -19,8 +19,6 @@ Các điểm chính cần nắm:
 * Tăng tốc chốt sổ cuối tháng (Accelerated month-end closure): Có thể lên lịch (schedule) để tiến trình này tự chạy vào cuối mỗi tháng. Các chuyên gia tài chính được giải phóng khỏi các công việc admin nhàm chán để tập trung vào phân tích chiến lược tối ưu chi phí.
 
 
-...Hình ảnh...
+![Bài Blog 1](/images/blog1.png)
 
-[...Link...](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198776387553988/)
-
-...Hướng dẫn...
+[Đường Link dẫn đến bài Blog 1](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198776387553988/)

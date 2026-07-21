@@ -1,57 +1,21 @@
 ---
-title : "Prepare the environment"
-date : 2024-01-01
-weight : 1
-chapter : false
-pre : " <b> 5.4.1 </b> "
+title: "Raw File Storage (Amazon S3)"
+date: 2026-07-20
+weight: 1
+chapter: false
+pre: " <b> 5.4.1. </b> "
 ---
 
-To prepare for this part of the workshop you will need to:
-+ Deploying a CloudFormation stack 
-+ Modifying a VPC route table. 
+### 1. Provisioning an S3 Bucket for Invoices
+We create a bucket named `finvantage-raw-invoices-[random-id]` to act as a landing zone for invoice files coming from the `Import Lambda`.
+*   **Security:** Enable the **Block all public access** feature. No one from the Internet can directly access these files without a valid IAM Role.
+*   **Encryption:** Enable Server-Side Encryption with the SSE-S3 standard to protect sensitive data at rest.
 
-These components work together to simulate on-premises DNS forwarding and name resolution.
+### 2. Configuring Event Notifications (Triggering Events)
+Serverless architecture is Event-driven. When a new invoice file is successfully uploaded to S3, S3 will automatically emit an Event to wake up the `Parse & Categorize Lambda` function or `Textract` to start working.
+*   Navigate to the **Properties** tab of the S3 Bucket.
+*   Create an Event notification: Capture the `s3:ObjectCreated:Put` event.
+*   Destination: Select the Lambda function responsible for handling OCR.
 
-#### Deploy the CloudFormation stack
-
-The CloudFormation template will create additional services to support an on-premises simulation:
-+ One Route 53 Private Hosted Zone that hosts Alias records for the PrivateLink S3 endpoint
-+ One Route 53 Inbound Resolver endpoint that enables "VPC Cloud" to resolve inbound DNS resolution requests to the Private Hosted Zone
-+ One Route 53 Outbound Resolver endpoint that enables "VPC On-prem" to forward DNS requests for S3 to "VPC Cloud"
-
-![route 53 diagram](/images/5-Workshop/5.4-S3-onprem/route53.png)
-
-1. Click the following link to open the [AWS CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/reinvent-endpoints-builders-session/R53CF.yaml&stackName=PLOnpremSetup). The required template will be pre-loaded into the menu. Accept all default and click Create stack.
-
-![Create stack](/images/5-Workshop/5.4-S3-onprem/create-stack.png)
-
-![Button](/images/5-Workshop/5.4-S3-onprem/create-stack-button.png)
-
-It may take a few minutes for stack deployment to complete. You can continue with the next step without waiting for the deployemnt to finish.
-
-#### Update on-premise private route table
-
-This workshop uses a strongSwan VPN running on an EC2 instance to simulate connectivty between an on-premises datacenter and the AWS cloud. Most of the required components are provisioned before your start. To finalize the VPN configuration, you will modify the "VPC On-prem" routing table to direct traffic destined for the cloud to the strongSwan VPN instance.
-
-1. Open the Amazon EC2 console 
-
-2. Select the instance named infra-vpngw-test. From the Details tab, copy the Instance ID and paste this into your text editor
-
-![ec2 id](/images/5-Workshop/5.4-S3-onprem/ec2-onprem-id.png)
-
-3. Navigate to the VPC menu by using the Search box at the top of the browser window.
-
-4. Click on Route Tables, select the RT Private On-prem route table, select the Routes tab, and click Edit Routes.
-
-![rt](/images/5-Workshop/5.4-S3-onprem/rt.png)
-
-5. Click Add route.
-+ Destination: your Cloud VPC cidr range
-+ Target: ID of your infra-vpngw-test instance (you saved in your editor at step 1)
-
-![add route](/images/5-Workshop/5.4-S3-onprem/add-route.png)
-
-6. Click Save changes
-
-
-
+> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the **Event notifications** setup in S3, showing the S3 Bucket routing the event flow to a Lambda function.
+> *Markdown code:* `![S3 Event Notification](../../../images/s3-event-notification.png)`

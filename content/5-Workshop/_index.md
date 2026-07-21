@@ -1,31 +1,38 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-20
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# FINVANTAGE CLOUD INFRASTRUCTURE DEPLOYMENT WORKSHOP
 
-#### Overview
+### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In the modern Financial Technology (FinTech) sector, maintaining a stable, highly automated system with strict user data security is vital.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+In this Lab, you will get hands-on experience designing, configuring, and deploying the entire AWS cloud infrastructure for the **FinVantage** platform (Personal Finance Management & Automated Alert System). The system is built on a **Serverless** architecture combined with AI, featuring a clear separation of service layers.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+Specifically, this practice emphasizes system design thinking and core security by completely hiding the database within an internal network (Private Subnets), utilizing asynchronous processing (Async), and automating data extraction.
 
-#### Content
+### Core Services Utilized
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+*   **Entry & Security:** AWS WAF, Amazon CloudFront, Amazon S3, Amazon Cognito.
+*   **Compute & APIs:** Amazon API Gateway, AWS Lambda.
+*   **AI & OCR:** Amazon Textract, Amazon Bedrock.
+*   **Database & Cache:** Amazon RDS (MySQL), Amazon RDS Proxy, Amazon ElastiCache.
+*   **Async Processing:** Amazon SQS, Amazon SNS.
+*   **Observability:** Amazon CloudWatch, AWS X-Ray, AWS CloudTrail.
+
+### Workshop Content
+
+1. [Workshop Overview](5.1-workshop-overview/): Understand the real-world problem and analyze the Solution Architecture Diagram.
+2. [Prerequisites](5.2-prerequisite/): Prepare the AWS environment, IAM Roles, and AI model access permissions.
+3. [VPC & Networking Infrastructure](5.3-vpc-networking/): Build the internal network framework, configure Public/Private routing, and optimize security.
+4. [Data & Cache Layer](5.4-data-cache-layer/): Deploy Amazon RDS, ElastiCache, and configure RDS Proxy.
+5. [Serverless & AI Layer](5.5-serverless-ai/): Configure API Gateway, write AWS Lambda logic, and integrate Textract and Bedrock.
+6. [Edge & Security Layer](5.6-edge-security/): Distribute static content via S3/CloudFront, set up AWS WAF, and implement Cognito authentication.
+7. [Observability & Alerts](5.7-observability/): Monitor with CloudWatch, trace with X-Ray, and set up SNS alerts.
+8. [Live Demo & Reflection](5.8-live-demo/): Experience the live system and extract optimization lessons.
+9. [Resource Cleanup](5.9-cleanup/): Safely destroy the infrastructure to eliminate unexpected costs.

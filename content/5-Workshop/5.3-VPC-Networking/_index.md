@@ -1,18 +1,22 @@
 ---
-title : "Access S3 from VPC"
-date : 2024-01-01
-weight : 3
-chapter : false
-pre : " <b> 5.3. </b> "
+title: "Routing & Security Groups"
+date: 2026-07-20
+weight: 3
+chapter: false
+pre: " <b> 5.3.3. </b> "
 ---
 
-#### Using Gateway endpoint
+### 1. Configuring Route Tables
+Routing acts like traffic signs, directing data in the correct direction.
+*   **Public Route Table:** Attached to 2 Public Subnets. Add Rule: Route `0.0.0.0/0` (all traffic to the Internet) with the Target pointing to the **Internet Gateway (IGW)**.
+*   **Private Route Table:** Attached to 2 Private Subnets. Add Rule: Route `0.0.0.0/0` with the Target pointing to the **NAT Gateway**. Thanks to this rule, Lambda can silently invoke the AI API from the internal network.
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the Private Subnet's Route Table interface, showing the outbound traffic being directed through `nat-...`.
+> *Markdown code:* `![Private Route Table](../../../images/private-route.png)`
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+### 2. Setting up Security Groups (Firewalls)
+Instead of traditional IP blocking, Cloud architecture allows blocking by Security Groups (SG).
+*   **Create Lambda-SG:** Attached to Lambda functions. Leave Inbound empty (no incoming connections accepted). Allow all for Outbound to make external calls.
+*   **Create Database-SG:** Attached to RDS and ElastiCache. For Inbound, only open ports `3306` (MySQL) and `6379` (Redis). The key point: **In the Source column, do not enter an IP address, but enter the ID of the Lambda-SG**.
 
-#### Content
-
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+This configuration ensures the principle: Only authorized Lambda functions have the right to knock on the Database's door, effectively blocking any risks of system scanning from external sources.

@@ -1,32 +1,17 @@
 ---
-title : "Clean up"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "Edge & Security Layer"
+date: 2026-07-20
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+### Setting up the Edge Protection Layer
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Securing the internal infrastructure (Private Subnets) is not enough. A financial system like FinVantage needs protection right from the very first touchpoint with users on the Internet. The Edge Security layer helps us solve three major problems:
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+1.  **Global Delivery:** Blazing-fast loading of the application interface (Frontend) regardless of where users are located globally.
+2.  **Traffic Filtering & Attack Prevention:** Blocking denial-of-service (DDoS) attacks or malicious code (SQL Injection, XSS) targeting the API.
+3.  **Identity Management:** Securely authenticating users and issuing valid tokens before granting access to personal data.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
-
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
-
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
-
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
-
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+In this section, we will practice configuring the edge security service chain, including: Amazon S3 (Static Hosting), Amazon CloudFront, AWS WAF, and Amazon Cognito.

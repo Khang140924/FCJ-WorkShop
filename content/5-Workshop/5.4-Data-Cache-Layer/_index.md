@@ -1,17 +1,37 @@
 ---
-title: "Data & Cache Layer"
+title: "Data and Cache Layer"
 date: 2026-07-20
 weight: 4
-chapter: false
+chapter: true
 pre: " <b> 5.4. </b> "
 ---
 
-### Distributed Data Layer Design
+### Data & Caching Layer Architecture (Data Layer & Caching)
 
-In the FinVantage architecture, data storage and retrieval are clearly separated based on the characteristics of each data type to optimize cost and performance. The system utilizes three main storage mechanisms:
+Welcome! In this chapter, we will walk through configuring and verifying the data persistence and caching layer for the FinVantage system.
 
-1.  **Object Storage:** Uses Amazon S3 to receive and store original invoice files (images, PDFs) uploaded by users.
-2.  **Relational Database:** Uses Amazon RDS (MySQL) as the Single Source of Truth to store tightly structured transaction information, identities, and spending categories.
-3.  **In-memory Cache:** Uses Amazon ElastiCache (Redis) to accelerate retrieval speeds for frequently called financial analysis reports.
+To ensure a personal finance management application operates smoothly and securely, the data layer design segregates storage based on specific data characteristics. FinVantage utilizes three core storage engines:
 
-Specifically, to solve the Connection Pool Exhaustion problem—a classic "pain point" when combining AWS Lambda with traditional databases—we will deploy an additional component, **Amazon RDS Proxy**.
+1.  **Object Storage:** Uses **Amazon S3** to ingest and persistently store raw receipt image and PDF files uploaded by users.
+2.  **Relational Database:** Uses **Amazon RDS PostgreSQL** as the Single Source of Truth for structured user accounts, financial transactions, monthly budgets, and AI analysis records.
+3.  **In-memory Cache:** Uses **Amazon ElastiCache Valkey/Redis** for session management and transient OCR data caching to minimize database load and accelerate response speeds.
+
+---
+
+### RDS Proxy - Solving Serverless Connection Challenges
+
+A classic challenge when combining Serverless Lambda functions with relational databases is **Connection Pool Exhaustion**. When hundreds of concurrent user requests arrive, AWS Lambda auto-scales up to hundreds of parallel function instances. Each instance attempting to open its own database connection can quickly exhaust PostgreSQL connection limits, causing database crashes.
+
+To solve this problem, FinVantage implements **Amazon RDS Proxy** as an intermediate connection pooler that intelligently multiplexes and reuses database connections, ensuring system stability during peak traffic spikes.
+
+---
+
+### Data Layer Roadmap
+1.  **Amazon S3 Receipt Storage:** Configure private receipt bucket policies and CORS Rules.
+2.  **Amazon RDS PostgreSQL:** Verify secure relational database configuration and parameter groups.
+3.  **Amazon RDS Proxy:** Verify connection management and target group health.
+4.  **Amazon ElastiCache Valkey/Redis:** Configure Valkey/Redis cluster for session and OCR state caching.
+5.  **AWS Secrets Manager:** Securely manage database credentials and secrets.
+6.  **Database Migration:** Confirm database schema migration status.
+
+Let's begin with Amazon S3 in the next lesson!

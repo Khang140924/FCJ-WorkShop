@@ -20,3 +20,7 @@ Thay vì chặn IP truyền thống, kiến trúc Cloud cho phép chặn theo nh
 *   **Tạo Database-SG:** Gắn cho RDS và ElastiCache. Inbound chỉ mở cổng `3306` (MySQL) và `6379` (Redis). Điểm mấu chốt: **Cột Source không điền IP, mà điền ID của Lambda-SG**.
 
 Cấu hình này đảm bảo nguyên tắc: Chỉ những hàm Lambda được cấp phép mới có quyền gõ cửa Database, chặn đứng mọi rủi ro dò quét hệ thống từ các nguồn bên ngoài.
+
+---
+
+![Hình 5.3.3. Cấu hình Inbound & Outbound Rules của Database Security Group liên kết với Lambda Security Group.](../../../../images/finvantage-database-sg.jpg)

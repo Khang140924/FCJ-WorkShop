@@ -1,18 +1,25 @@
 ---
-title: "Monitoring & Alerting"
+title: "Observability and System Monitoring"
 date: 2026-07-20
 weight: 7
-chapter: false
+chapter: true
 pre: " <b> 5.7. </b> "
 ---
 
-### System Observability
+### System Monitoring and Observability
 
-For a distributed serverless multi-service architecture like FinVantage, data flowing through API Gateway, entering Lambda, calling AI services (Textract/Bedrock), and finally saving to RDS makes debugging extremely complex. 
+Welcome! For a distributed Serverless application like FinVantage, user requests traverse API Gateway, trigger Lambda microservices, invoke external AI APIs (Textract/Bedrock), and persist records in RDS Proxy and PostgreSQL. If any component experiences failures or latency degradation, identifying root causes requires unified telemetry.
 
-If the system slows down or encounters errors, we cannot simply "SSH into the server to view logs" the traditional way. Instead, we must build comprehensive **Observability** capabilities to collect metrics, traces, and logs.
+Because there are no traditional 24/7 EC2 servers to SSH into, we establish a centralized **Observability** framework built upon 3 primary pillars: Metrics (system performance data), Logs (runtime event logs), and Traces (request execution flow).
 
-In this section, we will practice:
-1. Collecting and visualizing system logs with Amazon CloudWatch.
-2. Tracing the latency of each service using AWS X-Ray.
-3. Setting up an automated alerting system via Amazon SNS.
+---
+
+### Chapter Roadmap
+
+We will explore implementation across 3 detailed lessons:
+
+1.  **Lesson 5.7.1. Amazon CloudWatch:** Practical logging and metric collection service. Learn how to query CloudWatch Logs for Lambda microservices and construct visual CloudWatch Dashboards monitoring API traffic.
+2.  **Lesson 5.7.2. AWS X-Ray and CloudTrail (Proposed Extension):** Explore distributed tracing solutions for request path visualization and account-wide API audit logging.
+3.  **Lesson 5.7.3. Automated Alerts via Amazon SNS (Proposed Extension):** Explore CloudWatch Alarms for metric threshold monitoring and automated email notification routing via Amazon SNS topics.
+
+Let's begin with Amazon CloudWatch in the next lesson!

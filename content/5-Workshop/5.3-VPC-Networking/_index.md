@@ -1,22 +1,43 @@
 ---
-title: "Routing & Security Groups"
+title: "Networking & Security"
 date: 2026-07-20
 weight: 3
-chapter: false
-pre: " <b> 5.3.3. </b> "
+chapter: true
+pre: " <b> 5.3. </b> "
 ---
 
-### 1. Configuring Route Tables
-Routing acts like traffic signs, directing data in the correct direction.
-*   **Public Route Table:** Attached to 2 Public Subnets. Add Rule: Route `0.0.0.0/0` (all traffic to the Internet) with the Target pointing to the **Internet Gateway (IGW)**.
-*   **Private Route Table:** Attached to 2 Private Subnets. Add Rule: Route `0.0.0.0/0` with the Target pointing to the **NAT Gateway**. Thanks to this rule, Lambda can silently invoke the AI API from the internal network.
+### Network & Security Infrastructure (VPC Networking)
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the Private Subnet's Route Table interface, showing the outbound traffic being directed through `nat-...`.
-> *Markdown code:* `![Private Route Table](../../../images/private-route.png)`
+Welcome! In this chapter, we will explore and establish the first line of defense for the entire FinVantage platform – the **Amazon VPC (Virtual Private Cloud)** network topology.
 
-### 2. Setting up Security Groups (Firewalls)
-Instead of traditional IP blocking, Cloud architecture allows blocking by Security Groups (SG).
-*   **Create Lambda-SG:** Attached to Lambda functions. Leave Inbound empty (no incoming connections accepted). Allow all for Outbound to make external calls.
-*   **Create Database-SG:** Attached to RDS and ElastiCache. For Inbound, only open ports `3306` (MySQL) and `6379` (Redis). The key point: **In the Source column, do not enter an IP address, but enter the ID of the Lambda-SG**.
+For a personal financial management application, protecting transaction data and budget information is paramount. A minor network misconfiguration could expose the database to unauthorized external access. Building an isolated network environment is an indispensable foundation.
 
-This configuration ensures the principle: Only authorized Lambda functions have the right to knock on the Database's door, effectively blocking any risks of system scanning from external sources.
+---
+
+### Why FinVantage Needs a Dedicated VPC
+
+1.  **Isolate Sensitive Resources:** Databases like PostgreSQL or ElastiCache Valkey cannot be exposed directly to the public Internet. By deploying a custom VPC, we isolate them inside private subnets – completely detached from direct inbound Internet access.
+2.  **Strict Data Flow Control:** Only valid API requests passing through Amazon API Gateway can safely trigger AWS Lambda functions running inside the VPC to query the database.
+3.  **Principle of Least Privilege:** By combining Subnets, Route Tables, and Security Groups, we explicitly define which services and IP ranges are allowed to communicate.
+
+---
+
+### Why AWS Lambda Needs VPC Attachment
+
+Although AWS Lambda functions are inherently serverless execution units, to query PostgreSQL or access Valkey Redis sessions located deep within private subnets, Lambda must be attached to the same VPC. Upon attachment, AWS provisions Elastic Network Interfaces (ENIs) for Lambda to communicate internally and securely.
+
+---
+
+![AWS Console → VPC → Your VPCs.](../../images/finvantage-vpc-overview.png) 
+
+---
+
+### Chapter Learning Agenda
+
+To construct a resilient and secure network topology for FinVantage, we will proceed through 3 targeted lessons:
+
+1.  **Lesson 5.3.1. Create or Verify VPC:** Inspect base VPC topology and configure Internet Gateway for edge routing.
+2.  **Lesson 5.3.2. Subnets & NAT Gateway Configuration:** Create public subnets and private subnets distributed across 2 Availability Zones (AZs) for High Availability.
+3.  **Lesson 5.3.3. Routing & Security Groups:** Configure Route Tables for egress routing and set up firewall Security Groups for Lambda, RDS Proxy, and Valkey.
+
+Let's begin with VPC verification in the next lesson!

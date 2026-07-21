@@ -6,30 +6,30 @@ chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-### Introduction to the Real-world Problem
+### Real-World Business Problem
 
-Manual personal finance management often encounters many difficulties: users have to manually enter each invoice, which is prone to errors and time-consuming. Additionally, traditional invoice processing systems are frequently overloaded when data volume spikes at the end of the month.
+Manual personal financial management is prone to errors and time-consuming as users must manually record each receipt. Moreover, traditional receipt processing systems often suffer from server overload when data traffic surges near the end of the month.
 
-This workshop will guide you step-by-step on how to build **FinVantage** – a fully Serverless cloud computing solution capable of auto-scaling, automatically extracting invoice data using Artificial Intelligence (AI), and implementing multi-layered security on AWS to thoroughly solve the aforementioned problem.
+This workshop will guide you step-by-step to build **FinVantage** – a completely Serverless cloud solution on AWS capable of auto-scaling, automated receipt data extraction powered by Artificial Intelligence (AI), and multi-layer security to solve these problems.
 
 ### Architecture Diagram
 
-The FinVantage system is designed with an Event-driven Architecture, ensuring High Availability and a clear separation of data flows.
+The FinVantage platform is designed using an Event-driven Architecture, ensuring High Availability and clean data stream isolation.
 
-![FinVantage System Architecture Diagram](../../images/finvantage-architecture.png)
+![FinVantage Solution Architecture Diagram](../../images/finvantage-architecture.png)
 
-<p align="center"><i>Figure 5.1.1: FinVantage architecture data flow diagram on AWS.</i></p>
+<p align="center"><i>Figure 5.1.1: FinVantage Architectural Dataflow Diagram on AWS.</i></p>
 
-### Core Components Explanation
+### Key Component Breakdown
 
-Based on the architecture diagram, the system is divided into the following specific layers:
+Based on the architectural diagram, the platform is divided into specific functional layers:
 
-*   **Entry & Security Layer:** Users send HTTPS requests through AWS WAF (anti-attack) and Amazon CloudFront (accelerated loading speed). The authentication process is managed by Amazon Cognito.
-*   **Compute Layer:** Amazon API Gateway acts as the gateway routing API calls to the corresponding AWS Lambda functions (`Payment Lambda`, `Import Lambda`, `Analysis Lambda`).
-*   **AI Integration:** When an invoice is uploaded to S3, AWS Lambda calls **Amazon Textract** to perform OCR (Optical Character Recognition) and passes the data to **Amazon Bedrock** for the AI to smartly categorize expenses.
-*   **Data Layer:** Safely located within the Private Subnet. Uses Amazon RDS (MySQL) to store user data, combined with Amazon RDS Proxy to avoid connection overload, and Amazon ElastiCache (Redis) for high-speed caching.
-*   **Async Processing:** Uses Amazon SQS to create a queue for handling heavy tasks (such as extracting multiple invoices simultaneously) via the `Worker Lambda`, combined with Amazon SNS to send financial alerts.
+*   **Entry & Security Layer:** User HTTPS requests pass through AWS WAF (DDoS/Exploit protection) and Amazon CloudFront CDN (speed acceleration). Authentication is centrally managed by Amazon Cognito.
+*   **Compute Layer:** Amazon API Gateway serves as the front door routing API calls to corresponding AWS Lambda microservices (`finvantage-prod-importInvoice`, `finvantage-prod-ocrInvoice`, `finvantage-prod-analyzeInvoice`).
+*   **AI Integration Layer:** When an invoice is uploaded to S3, AWS Lambda invokes **Amazon Textract** (`AnalyzeExpense` API) for OCR text extraction and passes extracted data to **Amazon Bedrock** (Claude 3.5 Sonnet) for intelligent expense categorization and financial advice generation.
+*   **Data & Cache Layer:** Safely placed inside Private Subnets. Amazon RDS (PostgreSQL) stores structured financial records, combined with Amazon RDS Proxy to prevent connection pool exhaustion and Amazon ElastiCache (Valkey/Redis) for high-speed state caching.
+*   **Async Processing Layer:** Uses Amazon SQS to queue heavy processing tasks through `Worker Lambda`, paired with Amazon SNS for instant financial budget alerts.
 
 ### Detailed Workshop Roadmap
 
-In the following sections, we will dive sequentially into provisioning the VPC infrastructure, setting up the database, writing code for AI-integrated Lambda functions, and finally configuring the external security layer.
+In the upcoming sections, we will dive deep into VPC networking initialization, database setup, Lambda function development integrated with AI, and outer edge security setup.

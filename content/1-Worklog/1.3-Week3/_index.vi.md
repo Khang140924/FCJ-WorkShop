@@ -25,13 +25,21 @@ pre: " <b> 1.3. </b> "
 ### Kết quả đạt được tuần 3:
 
 * Nắm vững khái niệm về Amazon EC2, hiểu rõ cách lựa chọn Instance Type (về CPU, RAM, Network) sao cho tối ưu và phù hợp nhất với từng loại kiến trúc ứng dụng phần mềm.
+
 * Phân biệt được cơ chế hoạt động của Security Group (tường lửa ảo cấp độ Instance - Stateful) để kiểm soát lưu lượng mạng ra/vào máy chủ một cách an toàn.
+
 * Hiểu được nguyên lý vận hành của Elastic Load Balancing (điều phối lưu lượng truy cập) và Auto Scaling Group (tự động tăng/giảm số lượng máy chủ dựa trên hiệu năng thực tế) nhằm đảm bảo tính sẵn sàng cao (High Availability) cho hệ thống.
+
 * Thực hiện cấu hình và khởi chạy thành công một máy chủ Amazon EC2 Instance sử dụng hệ điều hành Amazon Linux 2.
+
 * Cấu hình chính xác Key Pair và sử dụng các công cụ kết nối từ xa (như SSH Terminal/PuTTY) để truy cập trực tiếp vào quản trị máy chủ ảo từ máy tính cá nhân.
+
 * Thiết lập thành công Security Group Rule, mở các cổng mạng cơ bản (Port 22 cho SSH, Port 80/443 cho HTTP/HTTPS) để cho phép máy chủ giao tiếp với môi trường Internet.
+
 * Thực hành cài đặt thử nghiệm một Web Server cơ bản (Apache/Nginx) trên EC2 bằng cách sử dụng tính năng User Data (chạy script tự động khi khởi tạo máy chủ).
+
 * Hiểu rõ cách thức một ứng dụng Backend (Java, PHP, Go) được triển khai và vận hành thực tế trên môi trường máy chủ đám mây thay vì môi trường Localhost thông thường.
+
 * Rèn luyện kỹ năng quản trị hệ điều hành Linux qua giao diện dòng lệnh (CLI) – một kỹ năng bắt buộc và cực kỳ quan trọng đối với một Kỹ sư Backend / Cloud Engineer chuyên nghiệp.
 
 

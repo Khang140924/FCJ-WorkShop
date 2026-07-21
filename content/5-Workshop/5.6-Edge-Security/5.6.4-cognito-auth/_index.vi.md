@@ -1,27 +1,78 @@
 ---
-title: "Xác thực danh tính (Cognito)"
+title: "Amazon Cognito"
 date: 2026-07-20
 weight: 4
 chapter: false
 pre: " <b> 5.6.4. </b> "
 ---
 
-### Quản lý Định danh & Phiên đăng nhập
+### Amazon Cognito User Pool
 
-Để đảm bảo dữ liệu tài chính của người nào chỉ người đó được xem, FinVantage sử dụng **Amazon Cognito** để quản lý danh tính (Identity Management) một cách an toàn và chuyên nghiệp.
+### Mục tiêu
+Trang này sẽ hướng dẫn các bạn cách truy cập **Amazon Cognito Console** để xác minh User Pool ID **`ap-southeast-1_HQYkeSq33`**, kiểm tra các cấu hình App client (Client ID), thiết lập Hosted UI (giao diện đăng nhập được AWS lưu trữ sẵn), kiểm tra các đường dẫn Callback URLs thực tế và quản lý danh sách người dùng đã đăng ký của hệ thống **FinVantage**.
 
-#### 1. Khởi tạo Cognito User Pool
-*   Tạo một **User Pool** làm nơi lưu trữ thông tin tài khoản người dùng (Email, Password).
-*   Thiết lập chính sách mật khẩu mạnh (chữ hoa, số, ký tự đặc biệt).
-*   Kích hoạt tính năng xác thực qua Email (Gửi mã OTP khi đăng ký hoặc quên mật khẩu).
+### Giới thiệu ngắn
+Amazon Cognito cung cấp giải pháp quản lý danh tính, xác thực và phân quyền người dùng an toàn. FinVantage sử dụng Cognito làm Identity provider (dịch vụ quản lý định danh người dùng) để quản lý luồng đăng nhập, cấp phát JWT token (mã thông báo định dạng chuỗi JSON) chứng thực cho Frontend gửi request lên API backend.
 
-#### 2. Tích hợp JWT Token với API Gateway
-Luồng hoạt động xác thực của hệ thống diễn ra như sau:
-1.  Người dùng nhập Email/Mật khẩu trên giao diện web.
-2.  Frontend gửi thông tin đó đến Amazon Cognito.
-3.  Cognito kiểm tra hợp lệ và trả về một **JSON Web Token (JWT)**.
-4.  Khi người dùng muốn xem báo cáo chi tiêu, Frontend đính kèm JWT Token này vào Header của request.
-5.  **API Gateway** (nhờ cấu hình Cognito Authorizer ở Phần 5.5) sẽ kiểm tra tính hợp lệ của Token trước khi cho phép request gọi xuống hàm Lambda.
+### Các thông số cấu hình thực tế của FinVantage
 
+*   **User Pool ID:** `ap-southeast-1_HQYkeSq33` (đặt tại Singapore Region).
+*   **App client (ứng dụng khách kết nối) settings:**
+    *   **Client ID:** `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>` (chuỗi ký tự ngẫu nhiên dùng định danh frontend React).
+    *   **Client Secret:** Đã được thiết lập lưu trữ an toàn để xác thực cookie/session ở Lambda backend.
+*   **Hosted UI configuration:**
+    *   **Allowed callback URLs (Các đường dẫn chuyển hướng phản hồi đăng nhập):**
+        *   Production: `https://main.dp5hgt6k889yu.amplifyapp.com/auth/callback`
+        *   Local test: `http://localhost:5173/auth/callback`
+    *   **Allowed sign-out URLs (Các đường dẫn chuyển hướng sau khi đăng xuất):**
+        *   Production: `https://main.dp5hgt6k889yu.amplifyapp.com`
+        *   Local test: `http://localhost:5173`
+    *   **OAuth 2.0 Grant Types:** `Authorization code grant` (phương thức cấp quyền mã xác thực - cơ chế trao đổi mã lấy token bảo mật nhất).
+    *   **OAuth 2.0 Scopes:** `openid`, `email`, `profile`.
 
-> *Mã Markdown:* ![Amazon Cognito User Pool](../../../../images/cognito-user-pool.png)
+---
+
+### Các bước kiểm tra cấu hình trên AWS Console
+
+#### 1. Kiểm tra User Pool và App Client Settings
+
+**Bước 1:** Đăng nhập AWS Console → Tìm `Cognito` → Chọn dịch vụ **Amazon Cognito**.
+
+**Bước 2:** Tại giao diện quản lý User pools, tìm và click chọn dòng ID: **`ap-southeast-1_HQYkeSq33`**.
+
+**Bước 3:** Chuyển sang tab **App integration** (Tích hợp ứng dụng) → Cuộn xuống mục **App clients and analytics**:
+*   Xác nhận sự tồn tại của App client liên kết với Frontend. Copy và ghi lại mã **Client ID** của dự án.
+*   Click chọn vào tên app client này để xem chi tiết cấu hình Hosted UI.
+
+**Bước 4:** Tại phần **Hosted UI settings**, click chọn **Edit** (nếu cần xem đầy đủ) để xác minh các thông số **Callback URLs** và **Sign-out URLs** có được thiết lập chính xác như mô tả ở trên hay chưa.
+
+---
+
+![Hình 5.6.4a. Cấu hình chi tiết Hosted UI và Callback URL của Amazon Cognito User Pool.](../../../../images/finvantage-cognito-config.jpg)
+
+---
+
+#### 2. Quản lý và kiểm tra danh sách tài khoản người dùng
+
+**Bước 1:** Tại trang chi tiết User pool, click chọn tab **Users** (Người dùng).
+
+**Bước 2:** Xác minh danh sách toàn bộ các tài khoản người dùng đã đăng ký thành công trên hệ thống. 
+*   Trạng thái **Status** hiển thị là `Confirmed` (Xác thực thành công).
+*   **Trigger gửi OTP:** Khi người dùng mới đăng ký, Cognito sẽ tự động gửi mã OTP xác nhận về địa chỉ email của người dùng trước khi chuyển trạng thái thành Confirmed.
+
+---
+
+![Hình 5.6.4b. Danh sách tài khoản người dùng đã đăng ký thành công trên Amazon Cognito User Pool.](../../../../images/finvantage-cognito-users.jpg)
+
+---
+
+> ⚠️ **Lưu ý bảo mật cực kỳ quan trọng:** Khi chụp ảnh màn hình danh sách người dùng cho báo cáo học tập, bắt buộc phải sử dụng công cụ bôi mờ (blur) hoặc che (cắt) bớt ký tự email cá nhân của người dùng để bảo mật thông tin cá nhân (ví dụ hiển thị dạng `hieu***@gmail.com`).
+
+### Kết luận ngắn
+Amazon Cognito User Pool đã hoạt động ổn định, thực hiện cấp phát JWT token an toàn, hỗ trợ giao diện đăng nhập Hosted UI chuẩn hóa và quản lý người dùng tập trung hiệu quả.
+
+---
+
+### Danh sách hình ảnh cần chụp cho báo cáo
+1.  `finvantage-cognito-config.png` - Cấu hình Hosted UI, Client ID và Callback URLs của Cognito.
+2.  `finvantage-cognito-users.png` - Danh sách Users đăng ký thành công trên Cognito (đã bôi mờ email bảo mật).

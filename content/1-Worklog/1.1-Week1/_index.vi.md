@@ -24,8 +24,13 @@ pre: " <b> 1.1. </b> "
 ### Kết quả đạt được tuần 1:
 
 * Nắm vững định nghĩa về Cloud Computing, hiểu được các lợi ích cốt lõi khi doanh nghiệp chuyển đổi từ hạ tầng truyền thống (On-premises) lên đám mây AWS.
+
 * Hiểu rõ kiến trúc hạ tầng toàn cầu (Global Infrastructure) của AWS, phân biệt được vai trò và sự liên kết giữa Regions (Khu vực), Availability Zones (Vùng sẵn sàng) và Edge Locations (Điểm biên).
+
 * Có kỹ năng thao tác, điều hướng và khai thác tài liệu trên hệ thống Platform học tập trực tuyến.
+
 * Thiết lập thành công tài khoản và môi trường thực hành ban đầu trên hệ thống Hands-on, sẵn sàng cho việc triển khai các dịch vụ AWS thực tế ở các tuần tiếp theo.
+
 * Nắm bắt được tác phong làm việc, quy định báo cáo tiến độ và văn hóa tự học (Self-paced learning) đặc trưng của chương trình AWS Bootcamp.
+
 * Biết cách sử dụng các kênh cộng đồng của AWS Study Group để kết nối, đặt câu hỏi và tìm kiếm sự hỗ trợ khi gặp khó khăn về mặt kỹ thuật.

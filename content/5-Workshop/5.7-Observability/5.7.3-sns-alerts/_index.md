@@ -1,23 +1,79 @@
 ---
-title: "Automated Alerts (Amazon SNS)"
+title: "Amazon SNS Alerts"
 date: 2026-07-21
 weight: 3
 chapter: false
 pre: " <b> 5.7.3. </b> "
 ---
 
-### Setting up Alerts with Amazon SNS
+### Amazon SNS Alerts (Proposed Automated Alerting Extension)
 
-Instead of staring at the CloudWatch screen 24/7, we use **Amazon SNS (Simple Notification Service)** combined with CloudWatch Alarms to let the system automatically sound the alarm when an incident occurs.
+> ⚠️ **IMPORTANT NOTE:**  
+> **Proposed Architectural Extension (Not deployed in current production).**  
+> To simplify configuration and prevent spam notifications during development testing, automated alerting via Amazon SNS and CloudWatch Alarms is omitted in the lab deployment. The section below describes theoretical alerting architecture for production operations.
 
-#### 1. Creating an Alert Topic
-*   Provision an SNS Topic named `FinVantage-System-Alerts`.
-*   Create a **Subscription**: Register a personal email (or a Telegram/Slack webhook) to this Topic to receive notifications.
+---
 
-#### 2. Attaching CloudWatch Alarms
-We set up two classic monitoring alarms:
-1.  **Technical Alert:** Set an Alarm if the `Worker Lambda` processing AI encounters more than 5 Errors within 5 minutes. If triggered, the Alarm pushes a message to the SNS Topic to email the DevOps team.
-2.  **Billing Alert:** A unique characteristic of Serverless is paying per request volume. To prevent end-of-month AWS bills from skyrocketing due to attacks or coding bugs (infinite loops), we set an alarm as soon as the estimated budget exceeds `$10`.
+### Objective
+This page introduces automated alerting architectures combining **Amazon SNS (Simple Notification Service)** and **CloudWatch Alarms** to dispatch emergency notifications to DevOps teams when system metrics breach threshold limits in **FinVantage**.
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of an alert email from AWS sent to your inbox, OR the CloudWatch interface showing a red Alarm state (In alarm).
-> *Markdown code:* `![SNS and Email Alerts](../../../images/sns-email-alert.png)`
+### Overview
+Rather than requiring operators to manually refresh CloudWatch Dashboards 24/7, active monitoring triggers automated alarms. When application health metrics cross safety thresholds, CloudWatch fires SNS notifications to dispatch alert emails or webhook messages to Slack/Telegram.
+
+---
+
+### Theoretical Alerting System Setup
+
+#### 1. Initialize Amazon SNS Topic
+
+*   **Create SNS Topic:** Provision a Standard notification topic named `FinVantage-System-Alerts`.
+*   **Configure Subscription:** 
+    *   Create a new Subscription bound to the Topic.
+    *   *Protocol:* Select `Email`.
+    *   *Endpoint:* Enter the DevOps email address (e.g., `admin@finvantage.com`).
+    *   *Confirmation:* AWS dispatches a confirmation email. The subscriber must click **Confirm Subscription** in their inbox to activate notification routing.
+
+---
+
+> 📸 PHOTO TO ADD  
+> Screenshot: Confirmation email dispatched by AWS SNS containing "Confirm subscription" link.  
+> Suggested name: `finvantage-sns-subscription-email.png`  
+> Caption: "Figure 5.7.3a. AWS SNS automated email subscription confirmation (Illustrative Example)."
+
+---
+
+#### 2. Configure CloudWatch Alarms Triggering SNS
+
+Configure two critical monitoring alarms:
+
+*   **Operational Error Alarm (Technical Alarm):**
+    *   *Metric:* `AWS/Lambda` > `Errors` on core functions (`analyzeInvoice` or `ocrInvoice`).
+    *   *Threshold:* Fires if error count exceeds `5` errors within a `5-minute` period.
+    *   *Action:* Upon transitioning to **In Alarm** (Red), posts alert details to the SNS Topic to dispatch notification emails.
+*   **Billing Cap Alarm (Cost Alarm):**
+    *   *Metric:* `AWS/Billing` > `EstimatedCharges`.
+    *   *Threshold:* Estimated monthly charges breach `$10` USD.
+    *   *Purpose:* Prevents unexpected cloud bill spikes resulting from accidental infinite code loops or API spam attacks.
+
+---
+
+> 📸 PHOTO TO ADD  
+> Screenshot: AWS Console → CloudWatch → Alarms page showing alarm states (OK / In Alarm).  
+> Suggested name: `finvantage-cloudwatch-alarms.png`  
+> Caption: "Figure 5.7.3b. CloudWatch Alarms management dashboard showing active alarm configurations (Illustrative Example)."
+
+---
+
+### Common Troubleshooting
+*   **Issue: `Alarm stays in INSUFFICIENT_DATA state`**
+    *   *Cause:* Insufficient metric data points collected during the evaluation window (e.g., zero Lambda errors generated). Normal behavior for newly created alarms.
+    *   *Resolution:* Generate test traffic or verify evaluation period settings.
+
+### Summary
+Combining CloudWatch Alarms and Amazon SNS Alerts ensures rapid incident response, protecting FinVantage infrastructure availability.
+
+---
+
+### Report Screenshot Checklist
+1.  `finvantage-sns-subscription-email.png` - AWS SNS email subscription confirmation.
+2.  `finvantage-cloudwatch-alarms.png` - CloudWatch Alarms dashboard interface.

@@ -25,9 +25,9 @@ Hệ thống FinVantage được thiết kế với kiến trúc hướng sự k
 Dựa vào sơ đồ kiến trúc, hệ thống được chia thành các phân lớp cụ thể sau:
 
 *   **Tầng Biên & Bảo mật (Entry & Security Layer):** Người dùng gửi HTTPS request đi qua AWS WAF (chống tấn công) và Amazon CloudFront (tăng tốc độ tải). Quá trình xác thực được quản lý bởi Amazon Cognito.
-*   **Tầng Xử lý API (Compute Layer):** Amazon API Gateway đóng vai trò làm cửa ngõ định tuyến các API calls đến các hàm AWS Lambda tương ứng (`Payment Lambda`, `Import Lambda`, `Analysis Lambda`).
-*   **Tầng AI & Xử lý tự động (AI Integration):** Khi có hóa đơn tải lên S3, AWS Lambda sẽ gọi **Amazon Textract** để thực hiện OCR (nhận diện chữ) và truyền sang **Amazon Bedrock** để AI phân loại chi tiêu thông minh.
-*   **Tầng Dữ liệu (Data Layer):** Nằm an toàn trong Private Subnet. Sử dụng Amazon RDS (MySQL) lưu trữ dữ liệu người dùng, kết hợp với Amazon RDS Proxy để tránh quá tải kết nối và Amazon ElastiCache (Redis) để làm bộ đệm tốc độ cao.
+*   **Tầng Xử lý API (Compute Layer):** Amazon API Gateway đóng vai trò làm cửa ngõ định tuyến các API calls đến các hàm AWS Lambda microservices tương ứng (`finvantage-prod-importInvoice`, `finvantage-prod-ocrInvoice`, `finvantage-prod-analyzeInvoice`).
+*   **Tầng AI & Xử lý tự động (AI Integration):** Khi có hóa đơn tải lên S3, AWS Lambda sẽ gọi **Amazon Textract** (`AnalyzeExpense` API) để thực hiện OCR bóc tách chữ và truyền sang **Amazon Bedrock** (Claude 3.5 Sonnet) để AI phân loại chi tiêu và đưa ra lời khuyên tài chính thông minh.
+*   **Tầng Dữ liệu (Data Layer):** Nằm an toàn trong Private Subnet. Sử dụng Amazon RDS (PostgreSQL) lưu trữ dữ liệu người dùng, kết hợp với Amazon RDS Proxy để tránh quá tải kết nối và Amazon ElastiCache (Valkey/Redis) để làm bộ đệm trạng thái tốc độ cao.
 *   **Tầng Bất đồng bộ (Async Processing):** Sử dụng Amazon SQS để tạo hàng đợi xử lý các tác vụ nặng (như bóc tách nhiều hóa đơn cùng lúc) thông qua `Worker Lambda`, kết hợp Amazon SNS để gửi cảnh báo tài chính.
 
 ### Lộ trình thực hành chi tiết

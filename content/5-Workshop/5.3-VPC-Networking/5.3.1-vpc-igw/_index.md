@@ -1,26 +1,77 @@
 ---
-title: "VPC & Internet Gateway"
+title: "Create or Verify VPC"
 date: 2026-07-20
 weight: 1
 chapter: false
 pre: " <b> 5.3.1. </b> "
 ---
 
-### 1. Provisioning Amazon VPC
-The first step is to create a completely isolated network space on AWS.
-*   **VPC Name:** `FinVantage-Production-VPC`
-*   **IP Range (IPv4 CIDR block):** `10.0.0.0/16`. This IP range provides up to 65,536 IP addresses, which is perfectly abundant for the system to auto-scale Lambda functions and other resources later.
+### Create or Verify VPC and Internet Gateway
 
-### 2. Setting up the Internet Gateway (IGW)
-For our VPC to communicate with the outside world (the Internet), an Internet Gateway must be attached.
-*   Create an IGW named `FinVantage-IGW`.
-*   Perform the **Attach to VPC** action and select the newly created `FinVantage-Production-VPC`.
+### Objective
+This page guides you on accessing the **VPC Console** on AWS to verify the configuration of the custom Virtual Private Cloud (VPC) and Internet Gateway (IGW) provisioned for **FinVantage**.
 
-### 3. Partitioning Public Subnets
-We create 2 Public Subnets located in 2 different Availability Zones (AZs) to ensure High Availability.
-*   **Public Subnet 1:** CIDR `10.0.1.0/24` (Located in AZ `us-east-1a`)
-*   **Public Subnet 2:** CIDR `10.0.2.0/24` (Located in AZ `us-east-1b`)
-*   Enable the *Auto-assign public IPv4 address* feature for these 2 subnets.
+### Overview
+To build a resilient and secure cloud application on AWS, confirming that the base VPC network functions properly is the very first step. FinVantage uses a dedicated private IPv4 CIDR block to prevent address conflicts with external systems.
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the newly created Subnets list in the VPC Console interface, clearly showing the IPv4 CIDR and Availability Zone columns.
-> *Markdown code:* `![Public Subnets List](../../../images/public-subnets.png)`
+### Core Service Roles in FinVantage
+*   **Amazon VPC:** Acts as a secure network perimeter enveloping the Lambda backend, PostgreSQL database, and Valkey cache. Unwanted external connection attempts are blocked at this perimeter.
+*   **Internet Gateway (IGW):** Serves as an egress/ingress gateway for resources in Public Subnets (e.g., enabling NAT Gateway to route outbound web traffic or fetch dependencies).
+
+---
+
+### Verification Steps on AWS Console
+
+> ⚠️ **Note:** Your production FinVantage VPC network resources have been pre-provisioned. Use these steps to verify parameters and collect configuration screenshots for documentation.
+
+Follow these verification steps:
+
+**Step 1:** Log in to the AWS Console, search for `VPC` and select **VPC**. Ensure the top-right Region is set to **Singapore (`ap-southeast-1`)**.
+
+**Step 2:** From the left navigation menu, click **Your VPCs**. 
+*   Locate the VPC for FinVantage (Name tag `FinVantage-VPC` or `finvantage-prod-vpc`).
+*   Verify that the **State** column shows `Available`.
+*   Note the **IPv4 CIDR block** (e.g., default `10.0.0.0/16`).
+
+---
+
+> 📸 PHOTO TO ADD  
+> Screenshot: AWS Console → VPC → Your VPCs.  
+> Content: List of VPCs showing FinVantage VPC, IPv4 CIDR Block, and Available state.  
+> Suggested name: `finvantage-vpc-overview.png`  
+> Caption: "Figure 5.3.1a. VPC configuration overview for the FinVantage project."
+
+---
+
+**Step 3:** Select the FinVantage VPC and check the **Details** tab below:
+*   Ensure **DNS resolution** is set to `Enabled`.
+*   Ensure **DNS hostnames** is set to `Enabled`. 
+*   *Note:* Enabling DNS attributes allows internal AWS service domain name resolution inside the VPC.
+
+**Step 4:** From the left menu, click **Internet gateways**:
+*   Locate the Internet Gateway attached to your VPC (`FinVantage-IGW` or `finvantage-prod-igw`).
+*   Verify that the **State** column shows `Attached`.
+*   Ensure the **VPC ID** column matches the FinVantage VPC ID verified in Step 2.
+
+---
+
+![Figure 5.3.1b. Internet Gateway successfully attached to the FinVantage VPC.](../../../images/finvantage-igw.jpg)
+
+---
+
+### Integration with Other Services
+An attached Internet Gateway does not route traffic automatically. In subsequent lessons, we will associate it with Public Subnet Route Tables to enable internet access for edge components.
+
+### Common Troubleshooting
+*   **Issue: `DNS resolution fails inside VPC`**
+    *   *Cause:* DNS resolution or DNS hostnames is disabled in VPC attributes.
+    *   *Resolution:* Go to **Your VPCs** → Select FinVantage VPC → Click **Actions** → **Edit VPC settings** → Enable **Enable DNS hostnames** and **Enable DNS resolution** → Click **Save**.
+
+### Summary
+The VPC and Internet Gateway are operating properly, establishing a foundation for subnet creation in the next lesson.
+
+---
+
+### Report Screenshot Checklist
+1.  `finvantage-vpc-overview.png` - VPC configuration overview.
+2.  `finvantage-igw.png` - Internet Gateway attachment state.

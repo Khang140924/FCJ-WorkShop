@@ -1,22 +1,79 @@
 ---
-title: "NAT Gateway & Private Subnets"
+title: "Public and Private Subnets"
 date: 2026-07-20
 weight: 2
 chapter: false
 pre: " <b> 5.3.2. </b> "
 ---
 
-### 1. Setting up Private Subnets
+### Public and Private Subnets
 
-This is a highly secured and isolated area with no Public IPs assigned. Sensitive data (such as the Database storing card/spending information) will be located here.
-*   **Private Subnet 1 (Database):** CIDR `10.0.10.0/24` (AZ `us-east-1a`)
-*   **Private Subnet 2 (Database):** CIDR `10.0.20.0/24` (AZ `us-east-1b`)
+### Objective
+This page guides you on accessing **Subnets** and **NAT Gateways** in the AWS Console to verify public/private network segregation and Multi-AZ configuration for **FinVantage**.
 
-### 2. Provisioning the NAT Gateway
+### Overview
+For maximum cloud security, an AWS network topology is partitioned into two distinct zones: public subnets exposed to the Internet, and private subnets completely isolated from direct access. Proper subnet setup protects critical data assets.
 
-Lambda functions located in the Private Subnet (e.g., `Analysis Lambda`) need to call out to the Internet to communicate with Amazon Bedrock AI. Since they do not have Public IPs, they must go through an intermediary gateway, which is the NAT Gateway.
-*   **Placement:** The NAT Gateway must be placed in a **Public Subnet**.
-*   **Elastic IP:** Allocate a static IP address (Elastic IP) for the NAT Gateway so it can represent the outbound traffic from the Private Subnets.
+### Role of Network Subnets in FinVantage
+*   **Private Subnets:** Houses the relational database (Amazon RDS PostgreSQL) and cache layer (Amazon ElastiCache Valkey/Redis). For High Availability (HA), RDS and Valkey run Multi-AZ across at least two Private Subnets in different Availability Zones (e.g., `ap-southeast-1a` and `ap-southeast-1b`). If one AZ suffers an outage, the platform automatically fails over to the secondary AZ without data loss.
+*   **Public Subnets:** Hosts edge gateways and specifically the **NAT Gateway** (or VPC Endpoints). Because backend Lambda functions reside in Private Subnets without public IP addresses, outbound requests are routed through the NAT Gateway located in a Public Subnet to reach external services like Cognito, STS, or Bedrock.
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the detailed configuration of the newly created NAT Gateway, highlighting the Subnet (located in the Public tier) and the Elastic IP in red.
-> *Markdown code:* `![NAT Gateway Configuration](../../../images/nat-gateway-config.png)`
+---
+
+### Verification Steps on AWS Console
+
+#### 1. Verify Subnets List
+
+**Step 1:** From the left menu of the **VPC Console**, click **Subnets**.
+
+**Step 2:** Enter the FinVantage project name into the search filter to display all relevant subnets.
+
+**Step 3:** Inspect the **Availability Zone** column:
+*   Ensure the system has at least 2 Public Subnets and 2 Private Subnets.
+*   Verify that subnets span different AZs (`ap-southeast-1a` and `ap-southeast-1b`) for high availability.
+*   Record the **IPv4 CIDR** blocks for each subnet.
+
+---
+
+> 📸 PHOTO TO ADD  
+> Screenshot: AWS Console → VPC → Subnets.  
+> Content: List of subnets showing Name, IPv4 CIDR, and Availability Zones (at least 2 AZs like ap-southeast-1a and ap-southeast-1b).  
+> Suggested name: `finvantage-subnets.png`  
+> Caption: "Figure 5.3.2a. List of Public and Private Subnets distributed across Availability Zones."
+
+---
+
+#### 2. Verify NAT Gateway
+
+**Step 1:** From the left menu, click **NAT Gateways**. (If using VPC Endpoints, click **Endpoints**).
+
+**Step 2:** Select the NAT Gateway (`FinVantage-NAT` or `finvantage-prod-nat`).
+
+**Step 3:** Inspect the details panel:
+*   Verify that **State** shows `Available`.
+*   Check the **Subnet** field: Ensure the NAT Gateway is placed inside a **Public Subnet** (placing it in a Private Subnet breaks Internet outbound connectivity).
+*   Note the **Elastic IP** address allocated to the NAT Gateway.
+
+---
+
+> 📸 PHOTO TO ADD  
+> Screenshot: AWS Console → VPC → NAT Gateways.  
+> Content: NAT Gateway configuration details showing Available state, Elastic IP, and Public Subnet attachment.  
+> Suggested name: `finvantage-nat-gateway.png`  
+> Caption: "Figure 5.3.2b. NAT Gateway configuration with Elastic IP for Private Subnet outbound connectivity."
+
+---
+
+### Common Troubleshooting
+*   **Issue: `Lambda timeout when calling Bedrock API`**
+    *   *Cause:* Lambda in Private Subnet cannot reach the Internet because NAT Gateway is misconfigured (placed in Private Subnet) or missing an Elastic IP.
+    *   *Resolution:* Check NAT Gateway settings on Console, ensuring the Subnet field points to a Public Subnet attached to an Internet Gateway Route Table.
+
+### Summary
+Subnets and NAT Gateway infrastructure are ready, providing secure connectivity for FinVantage backend workloads.
+
+---
+
+### Report Screenshot Checklist
+1.  `finvantage-subnets.png` - List of Public and Private Subnets.
+2.  `finvantage-nat-gateway.png` - NAT Gateway configuration details.

@@ -26,5 +26,4 @@ In a Serverless architecture, AWS Lambda does not inherently have access to RDS 
 *   **Core-Lambda-Role:** For logic processing functions (`Payment Lambda`, `Worker Lambda`). This role requires the `AWSLambdaVPCAccessExecutionRole` policy so Lambda can enter the Private Subnet to communicate with RDS and ElastiCache, plus permissions to read/write messages to Amazon SQS.
 *   **AI-Processing-Role:** For `Import Lambda` and `Parse & Categorize Lambda`. Besides VPC access, this Role must be attached with the `AmazonTextractFullAccess` policy, read/write permissions for S3 files (`s3:PutObject`, `s3:GetObject`), and permission to invoke Bedrock APIs (`bedrock:InvokeModel`).
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the list of newly created **IAM Roles** on the AWS IAM Console interface, or click on the `AI-Processing-Role` and capture the Permissions policies section for illustration.
-> *Markdown code:* `![Setting up IAM Roles for Lambda](../../images/iam-roles-lambda.png)`
+> *Markdown code:* ![Setting up IAM Roles for Lambda](../../images/iam-roles-lambda.png)

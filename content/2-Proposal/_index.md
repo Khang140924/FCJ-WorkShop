@@ -25,7 +25,7 @@ The solution completely eliminates manual data entry tasks, minimizes audit erro
 ### 3. Solution Architecture  
 The platform adopts a multi-tier AWS Serverless architecture, handling synchronous and asynchronous tasks flexibly. Data is received via API Gateway, processed by Lambda, stored in S3, and extracted via Amazon Textract.  
 
-![FinVantage Overall Architecture Diagram](/images/sodokientruc.png)
+![FinVantage Overall Architecture Diagram](images/sodokientruc.png)
 
 *AWS Services Used*  
 - *Amazon API Gateway*: Secure REST API gateway receiving requests from clients.  

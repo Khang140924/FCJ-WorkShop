@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 04/05/2026 đến ngày 30/07/2026
 
-<img src="/images/avatar.png" width="300" alt="Ảnh đại diện của bạn">
+<img src="images/avatar.png" width="500" alt="Ảnh đại diện của bạn">
 
 
 

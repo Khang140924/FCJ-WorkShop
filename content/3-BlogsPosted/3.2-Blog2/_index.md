@@ -18,6 +18,6 @@ Key takeaways:
 * Massive infrastructure cost reduction: Sharing core resources saves tens of vCPUs and hundreds of GBs of RAM. It can even save up to 70% in costs when flexibly combined with the EKS Auto Mode feature and running on EC2 Spot Instances.
 * Empowering self-service: Development teams are no longer dependent. They can simply "press a button" to create their own virtual Kubernetes environments in minutes, completely freeing up the workload for the platform operations team.
 
-![Blog 2 Post](/images/blog2.png)
+![Blog 2 Post](images/blog2.png)
 
 [Link to Blog 2 Post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)

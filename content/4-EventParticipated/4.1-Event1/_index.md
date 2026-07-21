@@ -55,7 +55,7 @@ Participating in the **“Cloud Architect”** event was an exhilarating experie
 - Clear communication and effective teamwork are essential to overcoming complex technical hurdles.
 
 #### Event Gallery
-* ![Ảnh sự kiện Cloud Architect](/images/event-cloud-architect.jpg)
-  ![Ảnh sự kiện Cloud Architect](/images/event-cloud-architect1.JPG)
+* ![Ảnh sự kiện Cloud Architect](images/event-cloud-architect.jpg)
+  ![Ảnh sự kiện Cloud Architect](images/event-cloud-architect1.JPG)
    
 > Overall, the event not only solidified my foundational cloud knowledge but also sharpened my system design mindset—a crucial asset for my journey as a Backend Developer.

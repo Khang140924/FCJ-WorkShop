@@ -16,7 +16,7 @@ This workshop will guide you step-by-step on how to build **FinVantage** – a f
 
 The FinVantage system is designed with an Event-driven Architecture, ensuring High Availability and a clear separation of data flows.
 
-`![FinVantage System Architecture Diagram](../../images/finvantage-architecture.png)`
+`![FinVantage System Architecture Diagram](../../../images/finvantage-architecture.png)`
 
 *Figure 5.1.1: FinVantage architecture data flow diagram on AWS.*
 

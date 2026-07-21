@@ -1,23 +1,22 @@
 ---
-title: "Blog 2"
+title: "Blog 3"
 date: 2026-07-06
-weight: 2
+weight: 3
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: " <b> 3.3. </b> "
 ---
 
-# OPTIMIZING TESTING ENVIRONMENTS WITH AMAZON EKS AND VCLUSTER
+# ENHANCING WEB APPLICATION SECURITY WITH AMAZON CLOUDFRONT VPC ORIGINS
 
-The eternal problem when operating projects using Kubernetes is that provisioning testing environments (QA/Testing) is often too slow and costly. Previously, whenever an independent environment was needed to test an application, teams had to wait for the Platform team to spin up an entirely separate Amazon EKS cluster. This process consumed up to 30-45 minutes, leading to a massive waste of resources (each cluster had to "carry" its own Load Balancer, DNS, and monitoring) and causing AWS infrastructure costs to skyrocket.
-A radical solution to this problem has been successfully applied by Deloitte: Combining Amazon EKS (as the platform server) and vCluster to create ultra-lightweight virtual Kubernetes clusters running together on a single physical infrastructure.
+In many AWS deployments, a common issue is that backend servers such as Application Load Balancers (ALB), Amazon EC2, or Amazon ECS must remain public so that Amazon CloudFront can access and distribute content. This inadvertently expands the attack surface, putting the application at risk of direct access and bypassing external protection layers. To solve this problem, AWS introduced Amazon CloudFront VPC Origins – a solution that allows CloudFront to connect directly to resources located in a private subnet of an Amazon VPC. As a result, the backend no longer requires a public IP address, while users can still leverage the power of the global CDN network.
 
 Key takeaways:
 
-* "Lightning-fast" deployment speed: The time to create a new testing environment is reduced from 45 minutes to under 5 minutes (89% faster). Developers and QA immediately have an independent workspace without needing to brew a coffee while waiting.
-* Centralized operations, minimizing complexity: Instead of maintaining dozens of tools (like Ingress controllers, monitoring, etc.) scattered across dozens of different clusters, everything now uses a shared stack on the host cluster.
-* Massive infrastructure cost reduction: Sharing core resources saves tens of vCPUs and hundreds of GBs of RAM. It can even save up to 70% in costs when flexibly combined with the EKS Auto Mode feature and running on EC2 Spot Instances.
-* Empowering self-service: Development teams are no longer dependent. They can simply "press a button" to create their own virtual Kubernetes environments in minutes, completely freeing up the workload for the platform operations team.
+* **Protecting the backend from the public Internet:** Placing the backend entirely in a private subnet and only allowing traffic through CloudFront completely prevents direct access from users. This significantly reduces the risk of port scanning and is a major step forward in building a Zero Trust architecture.
+* **Maintaining optimal delivery performance:** Even though the backend is hidden, the system continues to utilize AWS's Edge Locations and global backbone network. This ensures content is delivered with the lowest possible latency without altering the end-user experience.
+* **Simplifying infrastructure architecture:** Businesses no longer have to struggle with setting up NAT Gateways, proxies, or cumbersome network solutions to hide the backend. All private connection configurations can now be executed directly and quickly right on the CloudFront interface.
+* **Integrating multi-layer defense (Defense in Depth):** Perfectly integrates with AWS WAF (preventing web attacks), AWS Shield (DDoS protection), and Security Groups. This creates a solid defense system, comprehensively solving the problem of global web application security.
 
-![Blog 2 Post](images/blog2.png)
+![Blog 3](../../../images/blog3.png)
 
-[Link to Blog 2 Post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)
+[Link to Blog 3] *Pending approval.

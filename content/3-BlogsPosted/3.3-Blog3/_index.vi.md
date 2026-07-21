@@ -1,25 +1,22 @@
 ---
-title: "Blog 2"
+title: "Blog 3"
 date: 2026-07-06
-weight: 2
+weight: 3
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: " <b> 3.3. </b> "
 ---
 
-# TỐI ƯU HÓA MÔI TRƯỜNG KIỂM THỬ VỚI AMAZON EKS VÀ VCLUSTER
+# TĂNG CƯỜNG BẢO MẬT ỨNG DỤNG WEB VỚI AMAZON CLOUDFRONT VPC ORIGINS
 
-Vấn đề muôn thuở khi vận hành các dự án sử dụng Kubernetes là việc cấp phát môi trường kiểm thử (QA/Testing) thường quá chậm chạp và tốn kém. Trước đây, mỗi khi cần một môi trường độc lập để test ứng dụng, các team phải chờ đợi đội ngũ nền tảng (Platform team) dựng hẳn một cụm Amazon EKS riêng biệt. Quá trình này ngốn đến 30-45 phút, kéo theo sự lãng phí khủng khiếp về tài nguyên (mỗi cụm lại "cõng" thêm Load Balancer, DNS, monitoring riêng) và khiến chi phí hạ tầng AWS tăng vọt.
-Giải pháp triệt để cho vấn đề này đã được Deloitte áp dụng thành công: Kết hợp Amazon EKS (làm máy chủ nền tảng) và vCluster để tạo ra các cụm Kubernetes ảo (virtual clusters) siêu nhẹ, chạy chung trên một hạ tầng vật lý duy nhất.
+Trong nhiều hệ thống triển khai trên AWS, một vấn đề phổ biến là các máy chủ backend như Application Load Balancer (ALB), Amazon EC2 hoặc Amazon ECS vẫn phải được công khai (public) để Amazon CloudFront có thể truy cập và phân phối nội dung. Điều này vô tình mở rộng bề mặt tấn công, khiến ứng dụng có nguy cơ bị truy cập trực tiếp và bỏ qua các lớp bảo vệ bên ngoài. Để giải quyết vấn đề này, AWS đã giới thiệu Amazon CloudFront VPC Origins – giải pháp cho phép CloudFront kết nối trực tiếp tới các tài nguyên nằm trong private subnet của Amazon VPC. Nhờ đó, backend không còn cần địa chỉ IP công khai, trong khi người dùng vẫn tận dụng được sức mạnh từ mạng lưới CDN toàn cầu.
 
 Các điểm chính cần nắm:
 
-* Tốc độ triển khai "siêu tốc": Thời gian tạo mới một môi trường kiểm thử giảm từ 45 phút xuống dưới 5 phút (nhanh hơn 89%). Lập trình viên và QA có ngay không gian độc lập để làm việc mà không cần pha cà phê chờ đợi.
-* Vận hành tập trung, giảm thiểu rườm rà: Thay vì phải bảo trì hàng tá các công cụ (như Ingress controller, giám sát...) rải rác ở hàng chục cụm khác nhau, giờ đây tất cả dùng chung một bộ chia sẻ (shared stack) trên host cluster.
-* Cắt giảm chi phí hạ tầng cực lớn: Việc dùng chung tài nguyên gốc giúp tiết kiệm hàng chục vCPU và hàng trăm GB RAM. Thậm chí có thể tiết kiệm đến 70% chi phí khi kết hợp linh hoạt tính năng EKS Auto Mode và chạy trên các EC2 Spot Instances.
-* Trao quyền tự phục vụ (Self-service): Đội phát triển không còn bị phụ thuộc. Họ có thể tự "bấm nút" tạo môi trường Kubernetes ảo cho riêng mình trong vài phút, giúp giải phóng hoàn toàn sức lao động cho đội ngũ vận hành nền tảng.
+* **Bảo vệ backend khỏi Internet công cộng:** Việc đặt backend hoàn toàn trong mạng riêng (private subnet) và chỉ cho phép lưu lượng đi qua CloudFront giúp ngăn chặn hoàn toàn các truy cập trực tiếp từ người dùng. Điều này giảm đáng kể nguy cơ quét cổng (port scanning) và là bước tiến lớn trong việc xây dựng kiến trúc Zero Trust.
+* **Duy trì hiệu năng phân phối tối ưu:** Mặc dù backend được ẩn đi, hệ thống vẫn tiếp tục sử dụng mạng lưới Edge Locations và backbone toàn cầu của AWS. Đảm bảo nội dung được phân phối với độ trễ thấp nhất mà không làm thay đổi trải nghiệm của người dùng cuối.
+* **Đơn giản hóa kiến trúc hạ tầng:** Doanh nghiệp không còn phải loay hoay thiết lập NAT Gateway, proxy hay các giải pháp mạng rườm rà để che giấu backend. Mọi cấu hình kết nối private giờ đây được thực hiện trực tiếp và nhanh chóng ngay trên giao diện của CloudFront.
+* **Tích hợp phòng thủ nhiều lớp (Defense in Depth):** Kết hợp hoàn hảo cùng AWS WAF (ngăn chặn tấn công web), AWS Shield (chống DDoS) và Security Groups. Tạo ra một hệ thống phòng thủ vững chắc, giải quyết triệt để bài toán bảo mật ứng dụng web toàn cầu.
 
+![Bài Blog 3](../../../images/blog3.png)
 
-
-![Bài Blog 2](images/blog2.png)
-
-[Đường Link dẫn đến bài Blog 2](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)
+[Đường Link dẫn đến bài Blog 3] *Chưa được duyệt bài.

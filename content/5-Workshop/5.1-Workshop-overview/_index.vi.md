@@ -16,8 +16,7 @@ Workshop này sẽ hướng dẫn bạn từng bước cách xây dựng **FinVa
 
 Hệ thống FinVantage được thiết kế với kiến trúc hướng sự kiện (Event-driven Architecture), đảm bảo tính sẵn sàng cao (High Availability) và phân tách rõ ràng luồng dữ liệu.
 
-> 📸 **[NHẮC NHỞ CHÈN ẢNH]:** Chèn **Sơ đồ kiến trúc tổng thể của FinVantage** vào đây (chính là bức ảnh có các icon Lambda, Textract, RDS... mà bạn đã gửi cho mình lúc nãy).
-> *Ví dụ code:* `![Sơ đồ kiến trúc hệ thống FinVantage](../../images/finvantage-architecture.jpg)`
+[Sơ đồ kiến trúc hệ thống FinVantage](../../images/finvantage-architecture.png)
 
 *Hình 5.1.1: Sơ đồ luồng dữ liệu kiến trúc FinVantage trên AWS.*
 

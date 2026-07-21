@@ -65,6 +65,6 @@ Tham gia sự kiện **“Cloud Architect”** là một trải nghiệm bùng n
 
 #### Một số hình ảnh khi tham gia sự kiện
 * ![Ảnh sự kiện Cloud Architect](../../../../images/event-cloud-architect.jpg)
-  ![Ảnh sự kiện Cloud Architect](images/event-cloud-architect1.JPG)
+  ![Ảnh sự kiện Cloud Architect](../../../../images/event-cloud-architect1.JPG)
 
 > Tổng thể, sự kiện đã giúp tôi củng cố kiến thức nền tảng về Cloud và rèn luyện tư duy thiết kế hệ thống – những kỹ năng rất cần thiết cho hành trình trở thành Backend Developer trong tương lai.

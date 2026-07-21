@@ -1,33 +1,40 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-20
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# THỰC HÀNH TRIỂN KHAI HẠ TẦNG ĐÁM MÂY FINVANTAGE
 
+### Tổng quan (Overview)
 
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+Trong lĩnh vực công nghệ tài chính (FinTech) hiện đại, việc duy trì một hệ thống ổn định, tự động hóa cao và bảo mật nghiêm ngặt dữ liệu người dùng là yếu tố sống còn. 
 
-#### Tổng quan
+Trong bài Lab này, bạn sẽ tự tay thực hành thiết kế, cấu hình và triển khai toàn bộ hạ tầng đám mây AWS cho nền tảng **FinVantage** (Hệ thống Quản lý Chi tiêu & Cảnh báo Tài chính Cá nhân). Hệ thống được xây dựng theo kiến trúc **Serverless** (Phi máy chủ) kết hợp AI, phân tách rõ ràng các tầng dịch vụ. 
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Đặc biệt, bài thực hành nhấn mạnh vào tư duy thiết kế hệ thống và bảo mật cốt lõi thông qua việc ẩn giấu hoàn toàn cơ sở dữ liệu vào mạng nội bộ (Private Subnets), xử lý bất đồng bộ (Async) và tự động hóa trích xuất dữ liệu.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+### Các Dịch vụ Trọng tâm (Core Services Utilized)
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+*   **Entry & Security:** AWS WAF, Amazon CloudFront, Amazon S3, Amazon Cognito.
+*   **Compute & APIs:** Amazon API Gateway, AWS Lambda.
+*   **AI & OCR:** Amazon Textract, Amazon Bedrock.
+*   **Database & Cache:** Amazon RDS (MySQL), Amazon RDS Proxy, Amazon ElastiCache.
+*   **Async Processing:** Amazon SQS, Amazon SNS.
+*   **Observability:** Amazon CloudWatch, AWS X-Ray, AWS CloudTrail.
 
-#### Nội dung
+### Lộ trình Thực hành (Workshop Content)
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan Workshop](5.1-workshop-overview/): Tìm hiểu bài toán thực tế và phân tích Sơ đồ kiến trúc giải pháp.
+2. [Điều kiện tiên quyết](5.2-prerequisite/): Chuẩn bị môi trường AWS, IAM Role và quyền truy cập mô hình AI.
+3. [Hạ tầng VPC & Mạng](5.3-vpc-networking/): Xây dựng khung mạng nội bộ, định tuyến Public/Private và tối ưu bảo mật.
+4. [Tầng Dữ liệu & Bộ đệm](5.4-data-cache-layer/): Triển khai Amazon RDS, ElastiCache và cấu hình RDS Proxy.
+5. [Tầng Serverless & AI](5.5-serverless-ai/): Cấu hình API Gateway, viết logic AWS Lambda và tích hợp Textract, Bedrock.
+6. [Tầng Biên & Bảo mật](5.6-edge-security/): Phân phối tĩnh qua S3/CloudFront, thiết lập AWS WAF và xác thực Cognito.
+7. [Giám sát & Cảnh báo](5.7-observability/): Theo dõi CloudWatch, truy vết X-Ray và thiết lập cảnh báo SNS.
+8. [Live Demo & Đúc kết kinh nghiệm](5.8-live-demo/): Trải nghiệm thực tế hệ thống và rút ra các bài học tối ưu.
+9. [Dọn dẹp tài nguyên](5.9-cleanup/): Phá hủy hạ tầng an toàn để triệt tiêu chi phí phát sinh.
+
+> 📸 **[NHẮC NHỞ CHÈN ẢNH]:** Ở trang tổng này, bạn **không bắt buộc** phải chèn ảnh. Tuy nhiên, nếu muốn trang bìa đẹp hơn, bạn có thể chèn một logo AWS hoặc một ảnh minh họa dự án FinVantage thật ngầu vào ngay dưới tiêu đề chính.

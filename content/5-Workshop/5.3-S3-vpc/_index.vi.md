@@ -1,18 +1,18 @@
 ---
-title : "Truy cập S3 từ VPC"
-date : 2024-01-01 
-weight : 3
-chapter : false
-pre : " <b> 5.3. </b> "
+title: "Hạ tầng VPC & Mạng"
+date: 2026-07-20
+weight: 3
+chapter: false
+pre: " <b> 5.3. </b> "
 ---
 
-#### Sử dụng Gateway endpoint
+### Tổng quan Tầng Mạng (Networking Layer)
 
-Trong phần này, bạn sẽ tạo một Gateway endpoint để truy cập Amazon S3 từ một EC2 instance. Gateway endpoint sẽ cho phép tải một object lên S3 bucket mà không cần sử dụng Internet Công cộng. Để tạo endpoint, bạn phải chỉ định VPC mà bạn muốn tạo endpoint và dịch vụ (trong trường hợp này là S3) mà bạn muốn thiết lập kết nối.
+Trong kiến trúc Serverless của FinVantage, tầng mạng đóng vai trò là "bức tường thành" vật lý đầu tiên. 
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+Dù phần lớn logic xử lý nằm ở AWS Lambda (được AWS quản lý hạ tầng), nhưng cơ sở dữ liệu (Amazon RDS, ElastiCache) lại yêu cầu một không gian mạng cực kỳ bảo mật để tránh rò rỉ dữ liệu tài chính. Do đó, chúng ta sẽ tự tay thiết kế một **Amazon VPC (Virtual Private Cloud)** tùy chỉnh với chiến lược phân tách mạng (Network Segmentation) rõ rệt.
 
-#### Nội dung
-
-- [Tạo gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+Trong phần này, chúng ta sẽ lần lượt thực hành:
+1. Khởi tạo không gian mạng VPC và Internet Gateway.
+2. Xây dựng các mạng nội bộ (Private Subnets) và cổng giao tiếp NAT Gateway.
+3. Thiết lập luồng định tuyến (Route Tables) và tường lửa (Security Groups).

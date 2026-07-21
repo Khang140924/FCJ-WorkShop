@@ -17,6 +17,6 @@ Key takeaways:
 * **Simplifying infrastructure architecture:** Businesses no longer have to struggle with setting up NAT Gateways, proxies, or cumbersome network solutions to hide the backend. All private connection configurations can now be executed directly and quickly right on the CloudFront interface.
 * **Integrating multi-layer defense (Defense in Depth):** Perfectly integrates with AWS WAF (preventing web attacks), AWS Shield (DDoS protection), and Security Groups. This creates a solid defense system, comprehensively solving the problem of global web application security.
 
-![Blog 3](../../../images/blog3.png)
+![Blog 3](../../images/blog3.png)
 
 [Link to Blog 3] *Pending approval.

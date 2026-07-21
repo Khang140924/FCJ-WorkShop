@@ -18,7 +18,7 @@ Hệ thống FinVantage được thiết kế với kiến trúc hướng sự k
 
 ![Sơ đồ kiến trúc hệ thống FinVantage](../../../images/finvantage-architecture.png)
 
-*Hình 5.1.1: Sơ đồ luồng dữ liệu kiến trúc FinVantage trên AWS.*
+<p align="center"><i>Hình 5.1.1: Sơ đồ luồng dữ liệu kiến trúc FinVantage trên AWS.</i></p>
 
 ### Giải thích các thành phần lõi
 

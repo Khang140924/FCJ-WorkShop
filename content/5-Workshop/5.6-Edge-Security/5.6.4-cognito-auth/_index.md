@@ -23,5 +23,5 @@ The system's authentication workflow proceeds as follows:
 4.  When the user wants to view spending reports, the Frontend attaches this JWT Token to the request Header.
 5.  **API Gateway** (via the Cognito Authorizer configured in Section 5.5) verifies the token's validity before allowing the request to invoke the Lambda function.
 
-> 📸 **[IMAGE INSERTION REMINDER]:** Take a screenshot of the **Amazon Cognito User Pool** interface, focusing on the "App clients and analytics" section or the list of successfully registered users (User management).
-> *Markdown code:* `![Amazon Cognito User Pool](../../../images/cognito-user-pool.png)`
+
+> *Markdown code:* ![Amazon Cognito User Pool](../../../images/cognito-user-pool.png)

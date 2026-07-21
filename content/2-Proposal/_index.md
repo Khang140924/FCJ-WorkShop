@@ -25,16 +25,18 @@ The solution completely eliminates manual data entry tasks, minimizes audit erro
 ### 3. Solution Architecture  
 The platform adopts a multi-tier AWS Serverless architecture, handling synchronous and asynchronous tasks flexibly. Data is received via API Gateway, processed by Lambda, stored in S3, and extracted via Amazon Textract.  
 
-![FinVantage Overall Architecture Diagram](../images/sodokientruc.png)
+![FinVantage Overall Architecture Diagram](../../images/finvantage-architecture.png)
 
 *AWS Services Used*  
 - *Amazon API Gateway*: Secure REST API gateway receiving requests from clients.  
-- *AWS Lambda*: Serverless backend business logic processing.  
-- *Amazon S3*: Secure invoice/document file storage (Data Lake).  
-- *Amazon Textract*: Automated text and form data extraction from invoices (OCR).  
-- *Amazon SNS*: Automatic financial notifications and alerts to users.  
-- *Amazon CloudWatch*: Performance monitoring, metrics collection, and system log management.  
-- *Database (DynamoDB / RDS)*: Permanent financial structural data storage.  
+- *AWS Lambda*: Serverless backend business logic processing (Node.js 24.x).  
+- *Amazon S3*: Secure invoice and document file storage.  
+- *Amazon Textract*: Automated text and invoice data extraction (OCR `AnalyzeExpense` API).  
+- *Amazon Bedrock*: AI integration (Claude 3.5 Sonnet) for expense categorization and financial advice.  
+- *Amazon RDS (PostgreSQL) & RDS Proxy*: Structured data persistence and connection pool multiplexing.  
+- *Amazon ElastiCache (Valkey/Redis)*: High-speed caching for OCR results and user sessions.  
+- *AWS Amplify Hosting & Amazon Cognito*: Static React application hosting and user authentication.  
+- *Amazon SNS & CloudWatch*: Operational performance monitoring, log collection, and alert dispatching.  
 
 *Component Design*  
 - *Client / Frontend*: User interface sending requests and uploading financial files to the system.  

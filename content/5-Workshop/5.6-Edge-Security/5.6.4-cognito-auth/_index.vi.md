@@ -24,4 +24,4 @@ Luồng hoạt động xác thực của hệ thống diễn ra như sau:
 5.  **API Gateway** (nhờ cấu hình Cognito Authorizer ở Phần 5.5) sẽ kiểm tra tính hợp lệ của Token trước khi cho phép request gọi xuống hàm Lambda.
 
 > 📸 **[NHẮC NHỞ CHÈN ẢNH]:** Chụp màn hình giao diện **Amazon Cognito User Pool**, phần "App clients and analytics" hoặc màn hình hiển thị danh sách người dùng đã đăng ký thành công (User management).
-> *Mã Markdown:* `![Amazon Cognito User Pool](../../../images/cognito-user-pool.png)`
+> *Mã Markdown:* `![Amazon Cognito User Pool](../../../../images/cognito-user-pool.png)`

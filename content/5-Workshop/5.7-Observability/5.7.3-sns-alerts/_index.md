@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon SNS Alerts"
 date: 2026-07-21
 weight: 3
@@ -35,31 +35,26 @@ Rather than requiring operators to manually refresh CloudWatch Dashboards 24/7, 
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: Confirmation email dispatched by AWS SNS containing "Confirm subscription" link.  
-> Suggested name: `finvantage-sns-subscription-email.png`  
-> Caption: "Figure 5.7.3a. AWS SNS automated email subscription confirmation (Illustrative Example)."
+![Figure 5.7.3a. Amazon SNS topic finvantage-alert-topic details and email subscription configuration.](../../../images/finvantage-sns-subscription-email.jpg)
 
 ---
 
-#### 2. Configure CloudWatch Alarms Triggering SNS
+#### 2. Configure CloudWatch Alarms Triggering SNS Notifications
 
-Configure two critical monitoring alarms:
+We configure two critical monitoring alarms to protect system health:
 
 *   **Operational Error Alarm (Technical Alarm):**
-    *   *Metric:* `AWS/Lambda` > `Errors` on core functions (`analyzeInvoice` or `ocrInvoice`).
-    *   *Threshold:* Fires if error count exceeds `5` errors within a `5-minute` period.
-    *   *Action:* Upon transitioning to **In Alarm** (Red), posts alert details to the SNS Topic to dispatch notification emails.
-*   **Billing Cap Alarm (Cost Alarm):**
+    *   *Metric:* `AWS/Lambda` > `Errors` for core Lambda functions (`analyzeInvoice`, `ocrInvoice`).
+    *   *Trigger Threshold:* Greater than `5` execution errors within a `5-minute` window.
+    *   *Action:* Transitions state to **In Alarm** (Red) and publishes a detailed payload to the SNS Topic to alert DevOps.
+*   **Budget Overrun Alarm (Billing Alarm):**
     *   *Metric:* `AWS/Billing` > `EstimatedCharges`.
-    *   *Threshold:* Estimated monthly charges breach `$10` USD.
-    *   *Purpose:* Prevents unexpected cloud bill spikes resulting from accidental infinite code loops or API spam attacks.
+    *   *Trigger Threshold:* Estimated monthly charges exceed `$10` USD.
+    *   *Purpose:* Prevents infinite execution loops or DDoS API spamming from creating unexpected cloud billing charges.
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → CloudWatch → Alarms page showing alarm states (OK / In Alarm).  
-> Suggested name: `finvantage-cloudwatch-alarms.png`  
+![Figure 5.7.3b. Active CloudWatch alarm finvantage-lambda-errors monitoring backend function execution failures.](../../../images/finvantage-cloudwatch-alarms.jpg)  
 > Caption: "Figure 5.7.3b. CloudWatch Alarms management dashboard showing active alarm configurations (Illustrative Example)."
 
 ---
@@ -71,9 +66,3 @@ Configure two critical monitoring alarms:
 
 ### Summary
 Combining CloudWatch Alarms and Amazon SNS Alerts ensures rapid incident response, protecting FinVantage infrastructure availability.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-sns-subscription-email.png` - AWS SNS email subscription confirmation.
-2.  `finvantage-cloudwatch-alarms.png` - CloudWatch Alarms dashboard interface.

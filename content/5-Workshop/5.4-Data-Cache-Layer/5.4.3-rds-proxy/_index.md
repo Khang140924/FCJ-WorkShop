@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon RDS Proxy"
 date: 2026-07-21
 weight: 3
@@ -39,13 +39,6 @@ Amazon RDS Proxy acts as a database connection pooler sitting between AWS Lambda
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → RDS → Proxies → Select FinVantage Proxy → Summary/Connections tab.  
-> Content: Proxy Endpoint, Available status, Require TLS: True, Secrets Manager integration.  
-> Suggested name: `finvantage-rds-proxy-details.png`  
-> Caption: "Figure 5.4.3a. RDS Proxy configuration details (Endpoint, Require TLS, Secrets Manager integration)."
-
----
 
 **Step 5:** From the Proxy detail menu, select **Targets**:
 *   Click the default target group `default`.
@@ -54,13 +47,6 @@ Amazon RDS Proxy acts as a database connection pooler sitting between AWS Lambda
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → RDS → Proxies → Select FinVantage Proxy → Targets tab.  
-> Content: Target database instance and Target Health showing Available/Healthy status.  
-> Suggested name: `finvantage-rds-proxy-target-health.png`  
-> Caption: "Figure 5.4.3b. RDS Proxy Target Group connection health pointing to PostgreSQL database."
-
----
 
 ### Common Troubleshooting
 *   **Issue: `RDS Proxy Target status is Unavailable`**
@@ -69,9 +55,3 @@ Amazon RDS Proxy acts as a database connection pooler sitting between AWS Lambda
 
 ### Summary
 RDS Proxy is configured and operational, ensuring Lambda database traffic is safely pooled and routed to PostgreSQL.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-rds-proxy-details.png` - Proxy Endpoint, Require TLS, and Secrets Manager integration.
-2.  `finvantage-rds-proxy-target-health.png` - Target Group connection health to PostgreSQL DB.

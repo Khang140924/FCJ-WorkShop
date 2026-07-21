@@ -31,17 +31,10 @@ Hãy thực hiện các bước sau để kiểm tra:
 **Bước 2:** Tại thanh menu bên trái, click chọn **Your VPCs**. 
 *   Tìm kiếm VPC có tên dự án FinVantage (thường có tag Name là `FinVantage-VPC` hoặc `finvantage-prod-vpc`).
 *   Xác minh cột **State** hiển thị trạng thái `Available` (Khả dụng).
-*   Ghi nhận thông số **IPv4 CIDR block** (dải địa chỉ IP): `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>` (thường cấu hình mặc định là `10.0.0.0/16`).
+*   Ghi nhận thông số **IPv4 CIDR block**: `10.20.0.0/16` (VPC `finvantage-prod-vpc`).
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → VPC → Your VPCs.  
-> Nội dung cần thấy: Danh sách các VPC, trong đó hiển thị rõ VPC của dự án FinVantage, dải IPv4 CIDR Block và trạng thái Available.  
-> Tên ảnh đề xuất: `finvantage-vpc-overview.png`  
-> Chú thích: “Hình 5.3.1a. Giao diện kiểm tra cấu hình VPC của dự án FinVantage.”
-
----
 
 **Bước 3:** Tích chọn VPC của FinVantage và nhìn xuống tab **Details** ở phía dưới:
 *   Đảm bảo trường **DNS resolution** hiển thị trạng thái `Enabled`.
@@ -69,9 +62,3 @@ Internet Gateway sau khi được gắn (Attach) vào VPC sẽ chưa tự hoạt
 
 ### Kết luận ngắn
 VPC và Internet Gateway đã hoạt động ổn định, tạo nền tảng vững chắc để chúng ta tiến hành chia nhỏ các phân đoạn mạng (Subnets) ở bài học tiếp theo.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-vpc-overview.png` - Chi tiết thông tin cấu hình VPC.
-2.  `finvantage-igw.png` - Trạng thái liên kết Internet Gateway với VPC.

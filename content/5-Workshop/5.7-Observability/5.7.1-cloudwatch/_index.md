@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon CloudWatch"
 date: 2026-07-21
 weight: 1
@@ -69,22 +69,8 @@ Build a centralized Dashboard to track infrastructure health and API invocation 
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → CloudWatch → Dashboards → Select `finvantage-prod-dashboard`.  
-> Content: Centralized dashboard showing widgets for Lambda Invocations, Duration, API Gateway requests, and Database CPU utilization.  
-> Suggested name: `finvantage-cloudwatch-dashboard.png`  
-> Caption: "Figure 5.7.1c. Centralized CloudWatch Dashboard interface for FinVantage system monitoring."
-
----
 
 > ⚠️ **Important Security Note:** Mask AWS Account IDs when sharing console screenshots in documentation.
 
 ### Summary
 Amazon CloudWatch logging and metrics collection are operational, providing real-time system observability for FinVantage.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-cloudwatch-log-streams.png` - Lambda log streams list.
-2.  `finvantage-cloudwatch-logs.png` - Successful Lambda log stream execution details.
-3.  `finvantage-cloudwatch-dashboard.png` - CloudWatch Dashboard performance metrics.

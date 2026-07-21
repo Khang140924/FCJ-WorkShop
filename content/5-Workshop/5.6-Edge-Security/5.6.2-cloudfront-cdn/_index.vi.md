@@ -1,4 +1,4 @@
----
+﻿---
 title: "Mạng phân phối nội dung CloudFront"
 date: 2026-07-20
 weight: 2
@@ -38,7 +38,11 @@ Vì CloudFront được quản lý ngầm bởi Amplify, chúng ta không cần 
 
 ---
 
-![Hình 5.6.2. Kiểm tra các tiêu đề phản hồi (Response Headers) của CloudFront CDN sử dụng F12 Developer Tools.](../../../../images/finvantage-cloudfront-header.jpg)
+![Hình 5.6.2a. Kiểm tra các tiêu đề phản hồi (Response Headers) của CloudFront CDN sử dụng F12 Developer Tools.](../../../../images/finvantage-cloudfront-header.jpg)
+
+---
+
+![Hình 5.6.2b. Cấu hình Managed Response Headers Policies (CORS và Security Headers) trên AWS CloudFront Console.](../../../../images/finvantage-cloudfront-policies.jpg)
 
 ---
 
@@ -49,8 +53,3 @@ Vì CloudFront được quản lý ngầm bởi Amplify, chúng ta không cần 
 
 ### Kết luận ngắn
 Mạng lưới phân phối CloudFront CDN tích hợp dưới AWS Amplify đã hoạt động chính xác, đảm bảo tốc độ tải trang tối ưu cho ứng dụng FinVantage.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-cloudfront-header.png` - Response Headers chứa thông tin CloudFront trong F12 Network tab.

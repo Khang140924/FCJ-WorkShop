@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon RDS PostgreSQL"
 date: 2026-07-21
 weight: 2
@@ -60,13 +60,6 @@ A relational database acts as the single source of truth for structured financia
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → RDS → Databases → Select FinVantage DB → Configuration tab.  
-> Content: Engine PostgreSQL, Deletion protection Enabled, Encryption Enabled.  
-> Suggested name: `finvantage-rds-configuration.png`  
-> Caption: "Figure 5.4.2b. Data protection settings (Deletion Protection & Storage Encryption) for RDS PostgreSQL."
-
----
 
 **Step 5:** Switch to **Maintenance & backups**:
 *   Verify automated **Backups** are enabled with retention period set to at least 7 days.
@@ -83,9 +76,3 @@ Backend Lambda functions do not connect directly to the raw RDS Endpoint. To opt
 
 ### Summary
 PostgreSQL database is securely configured with storage encryption and VPC isolation, ready for connection pooling via RDS Proxy.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-rds-connectivity.png` - Endpoint, port 5432, and connectivity isolation.
-2.  `finvantage-rds-configuration.png` - PostgreSQL engine, Encryption, and Deletion Protection settings.

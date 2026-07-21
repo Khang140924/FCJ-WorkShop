@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tích hợp AI (Textract & Bedrock)"
 date: 2026-07-20
 weight: 3
@@ -101,13 +101,6 @@ Sau khi luồng tích hợp được thông suốt, khi bạn thực hiện uplo
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → CloudWatch → Log groups → Chọn Log group của Lambda `ocrInvoice` hoặc `analyzeInvoice` → xem một Log Stream chạy thành công.  
-> Nội dung cần thấy: Nhật ký ghi nhận bóc tách Textract thành công hoặc nội dung JSON trả về từ Amazon Bedrock chứa thông tin category và ai_advice.  
-> Tên ảnh đề xuất: `finvantage-cloudwatch-ocr-logs.png`  
-> Chú thích: “Hình 5.5.3d. Nhật ký CloudWatch Logs ghi nhận kết quả bóc tách Textract và phân tích AI từ Bedrock thành công.”
-
----
 
 ### Các lỗi thường gặp và cách xử lý
 *   **Lỗi: `AccessDeniedException: User: ... is not authorized to perform: sts:AssumeRole`**
@@ -116,11 +109,3 @@ Sau khi luồng tích hợp được thông suốt, khi bạn thực hiện uplo
 
 ### Kết luận ngắn
 Bằng việc thiết lập bảo mật liên tài khoản chặt chẽ, FinVantage đã kết nối thành công với Amazon Bedrock Claude 3.5 Sonnet, giúp ứng dụng bóc tách hóa đơn hoàn toàn tự động và chính xác.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-s3-trigger-ocr.png` - Bộ kích hoạt S3 trigger trên Lambda OCR.
-2.  `finvantage-bedrock-trust-relationship.png` - Trust Relationship cấu hình ở tài khoản Bedrock.
-3.  `finvantage-lambda-sts-policy.png` - Policy AssumeRole cấu hình ở tài khoản Backend.
-4.  `finvantage-cloudwatch-ocr-logs.png` - Log kết quả chạy thành công của AI trên CloudWatch Logs.

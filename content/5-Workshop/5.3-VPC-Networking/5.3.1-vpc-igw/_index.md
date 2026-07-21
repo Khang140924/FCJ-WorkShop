@@ -1,4 +1,4 @@
----
+﻿---
 title: "Create or Verify VPC"
 date: 2026-07-20
 weight: 1
@@ -35,13 +35,6 @@ Follow these verification steps:
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → VPC → Your VPCs.  
-> Content: List of VPCs showing FinVantage VPC, IPv4 CIDR Block, and Available state.  
-> Suggested name: `finvantage-vpc-overview.png`  
-> Caption: "Figure 5.3.1a. VPC configuration overview for the FinVantage project."
-
----
 
 **Step 3:** Select the FinVantage VPC and check the **Details** tab below:
 *   Ensure **DNS resolution** is set to `Enabled`.
@@ -69,9 +62,3 @@ An attached Internet Gateway does not route traffic automatically. In subsequent
 
 ### Summary
 The VPC and Internet Gateway are operating properly, establishing a foundation for subnet creation in the next lesson.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-vpc-overview.png` - VPC configuration overview.
-2.  `finvantage-igw.png` - Internet Gateway attachment state.

@@ -61,7 +61,7 @@ Upload the ZIP archive to the `FinVantage` application inside the Amplify Consol
 
 **Step 3:** Inspect deployment details:
 *   **Deployment status:** Verify status displays `Succeed` or `Successful`.
-*   **Production URL:** Click the production URL (`https://main.dp5hgt6k889yu.amplifyapp.com`) to open the live web app and verify HTTP 200 asset loading.
+*   **Production Domain:** Click on the domain link `https://main.dp5hgt6k889yu.amplifyapp.com` to open the live web application and verify full page load functionality.
 
 ---
 
@@ -87,9 +87,3 @@ Upload the ZIP archive to the `FinVantage` application inside the Amplify Consol
 
 ### Summary
 AWS Amplify Hosting has successfully deployed the frontend application, synchronized with backend API Gateways, and established secure SPA fallback routing.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-amplify-deployments.png` - Successful frontend deployment history.
-2.  `finvantage-amplify-redirects.png` - Amplify Rewrites and redirects table configuration.

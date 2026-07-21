@@ -19,4 +19,4 @@ Các điểm chính cần nắm:
 
 ![Bài Blog 3](../../../images/blog3.png)
 
-[Đường Link dẫn đến bài Blog 3] *Chưa được duyệt bài.
+[Đường Link dẫn đến bài Blog 3](https://www.facebook.com/share/p/1QrY2QS5HF/)

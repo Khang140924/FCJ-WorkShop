@@ -1,4 +1,4 @@
----
+﻿---
 title: "CloudFront Content Delivery Network"
 date: 2026-07-20
 weight: 2
@@ -38,7 +38,11 @@ Because CloudFront is managed automatically under Amplify, verify operations dir
 
 ---
 
-![Figure 5.6.2. Inspecting CloudFront CDN Response Headers via F12 Developer Tools.](../../../images/finvantage-cloudfront-header.jpg)
+![Figure 5.6.2a. Inspecting CloudFront CDN Response Headers via F12 Developer Tools.](../../../images/finvantage-cloudfront-header.jpg)
+
+---
+
+![Figure 5.6.2b. AWS CloudFront Console Managed Response Headers Policies configuration (CORS & Security Headers).](../../../images/finvantage-cloudfront-policies.jpg)
 
 ---
 
@@ -49,8 +53,3 @@ Because CloudFront is managed automatically under Amplify, verify operations dir
 
 ### Summary
 The underlying CloudFront CDN integrated into AWS Amplify Hosting is operational, delivering low-latency web asset distribution for FinVantage.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-cloudfront-header.png` - Response Headers showing CloudFront details in F12 Network tab.

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon SQS and Worker Lambda"
 date: 2026-07-20
 weight: 4
@@ -40,8 +40,3 @@ Invoking Amazon Textract OCR and passing raw text to Amazon Bedrock LLMs can tak
 
 ### Summary
 Asynchronous queuing patterns using SQS and DLQ enable FinVantage to scale seamlessly for high-concurrency workloads without crashing backend services.
-
----
-
-### Report Screenshot Checklist
-1.  `06-01-textract-processing.png` - Textract OCR extraction progress.

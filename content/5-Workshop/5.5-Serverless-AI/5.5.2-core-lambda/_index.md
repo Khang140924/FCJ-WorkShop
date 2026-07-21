@@ -50,25 +50,21 @@ AWS Lambda is the core compute engine of the FinVantage backend. The architectur
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → Lambda → Functions → Select `finvantage-prod-analyzeInvoice` → Configuration → VPC.  
-> Content: VPC attachment details, 2 Private Subnets, and Lambda-SG Security Group.  
-> Suggested name: `finvantage-lambda-vpc.png`  
-> Caption: "Figure 5.5.2a. VPC network attachment (2 Private Subnets and Lambda-SG) for Lambda function."
+![Figure 5.5.2a. Lambda VPC configuration showing Private Subnet attachments and LambdaSecurityGroup binding.](../../../images/finvantage-lambda-vpc.jpg)
 
 ---
 
-**Step 5:** Under **Configuration**, select **Environment variables**:
-*   Verify required configuration keys (`DB_HOST`, `REDIS_URL`, `BEDROCK_ROLE_ARN`, `BEDROCK_MODEL_ID`...).
-*   *Security Note:* Never display secret passwords or tokens in screenshots.
+**Step 5:** Select **Environment variables** under the Configuration tab:
+*   Verify key parameters are configured (such as `DB_HOST`, `REDIS_URL`, `BEDROCK_ROLE_ARN`, `BEDROCK_MODEL_ID`...).
+*   *Security Note:* Avoid taking screenshots of sensitive passwords or access tokens.
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → Lambda → Functions → Select `finvantage-prod-analyzeInvoice` → Configuration → Environment variables.  
-> Content: Runtime Node.js 24, Timeout, Memory, and Environment variables list (secrets masked).  
-> Suggested name: `finvantage-lambda-settings.png`  
-> Caption: "Figure 5.5.2b. Execution properties (Runtime, Memory, Timeout) and Environment Variables."
+![Figure 5.5.2b. Configured Lambda environment variables (Part 1 - Cognito, API Gateway, DB Secrets Manager ARN).](../../../images/finvantage-lambda-env-1.jpg)
+
+---
+
+![Figure 5.5.2c. Configured Lambda environment variables (Part 2 - S3 Bucket, Valkey/Redis Cluster URL, RDS Proxy Endpoint).](../../../images/finvantage-lambda-env-2.jpg)
 
 ---
 
@@ -89,9 +85,3 @@ During serverless deployment, esbuild bundlers may encounter ECMAScript Module (
 
 ### Summary
 Backend Lambda microservices are configured with Node.js 24 runtime, VPC attachment, and IAM execution roles for FinVantage workload execution.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-lambda-vpc.png` - VPC Subnets and Security Group configuration.
-2.  `finvantage-lambda-settings.png` - Runtime, General Settings, and Environment Variables.

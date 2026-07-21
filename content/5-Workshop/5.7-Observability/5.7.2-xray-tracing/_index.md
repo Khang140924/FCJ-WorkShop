@@ -1,4 +1,4 @@
----
+﻿---
 title: "AWS X-Ray and CloudTrail"
 date: 2026-07-20
 weight: 2
@@ -30,24 +30,19 @@ AWS X-Ray resolves distributed tracing challenges:
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: Sample AWS X-Ray Service Map diagram showing request flow across API Gateway, Lambda, S3, and Bedrock nodes.  
-> Suggested name: `finvantage-xray-service-map.png`  
-> Caption: "Figure 5.7.2a. AWS X-Ray visual Service Map topology (Illustrative Example)."
+![Figure 5.7.2a. AWS X-Ray Service Map visualizing component node dependencies during ocrInvoice execution.](../../../images/finvantage-xray-service-map.jpg)
 
 ---
 
 ### 2. Security Audit Logging with AWS CloudTrail
 
-While CloudWatch monitors code performance and X-Ray traces request flows, financial platforms require immutable audit logs answering: *"Who performed what API action, and when?"*. AWS CloudTrail satisfies audit logging requirements:
-*   **API Activity Recording:** CloudTrail logs all API calls made by IAM users, Lambda execution roles, or AWS services (e.g., Lambda invoking Textract, modifying database configurations, or updating S3 bucket policies).
-*   **Immutable Storage:** CloudTrail audit trails are stored securely in an encrypted S3 Bucket configured with Object Lock to prevent tamper attempts or log deletion.
+Beyond performance monitoring (CloudWatch) and trace path analysis (X-Ray), a financial platform must store an immutable audit log to record: *"Who performed what action and when on the AWS infrastructure?"*. AWS CloudTrail satisfies this requirement:
+*   **Recording API Calls:** CloudTrail automatically logs every API request invoked by IAM users, Lambda execution roles, or other AWS services (e.g., Lambda calling Textract APIs, modifying database configurations, altering S3 bucket policies).
+*   **Security & Tamper Resistance:** Audit logs are securely persisted inside an encrypted S3 Bucket with Object Lock enabled, preventing unauthorized deletion or modification after a security incident.
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS CloudTrail Console Event history page displaying recorded API events (GetBucketPolicy, AssumeRole, InvokeModel).  
-> Suggested name: `finvantage-cloudtrail-events.png`  
+![Figure 5.7.2b. AWS CloudTrail Event History logging s3.amazonaws.com management API requests.](../../../images/finvantage-cloudtrail-events.jpg)  
 > Caption: "Figure 5.7.2b. Automated API audit logging in AWS CloudTrail Event history (Illustrative Example)."
 
 ---
@@ -59,9 +54,3 @@ While CloudWatch monitors code performance and X-Ray traces request flows, finan
 
 ### Summary
 AWS X-Ray and CloudTrail elevate system operational confidence and security compliance to enterprise standards.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-xray-service-map.png` - AWS X-Ray visual Service Map diagram.
-2.  `finvantage-cloudtrail-events.png` - AWS CloudTrail API event history.

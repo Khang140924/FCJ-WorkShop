@@ -33,7 +33,7 @@ Thay vì chỉ lưu cache kết quả database thông thường, Valkey/Redis đ
 
 **Bước 4:** Tại trang thông tin chi tiết cụm cluster, xác minh các thông số kỹ thuật:
 *   **Status:** Trạng thái hoạt động hiển thị là `Available` hoặc `Active`.
-*   **Primary endpoint (địa chỉ kết nối chính):** Ghi nhận địa chỉ kết nối chính của cụm: `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>`.
+*   **Primary endpoint:** Ghi nhận địa chỉ kết nối của cụm Valkey/Redis: `master.fivkaiz9idm3en0.3dejqe.apse1.cache.amazonaws.com` (Port `6379`).
 *   **Port:** Cổng kết nối hiển thị chính xác là `6379` (cổng mặc định của Redis/Valkey).
 *   **Subnet group:** Liên kết đúng với nhóm Subnet nằm trong VPC Private Subnets của dự án.
 *   **Security groups:** Đảm bảo được gắn nhóm bảo mật `Valkey-SG` (hoặc `Database-SG`).
@@ -57,8 +57,3 @@ Hàm Lambda Backend sẽ đọc biến môi trường `REDIS_URL` (có định d
 
 ### Kết luận ngắn
 Cụm Valkey/Redis đã hoạt động ổn định, sẵn sàng cung cấp lớp đệm lưu trữ trạng thái tốc độ cao cho toàn bộ luồng xử lý hóa đơn tự động.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-elasticache.png` - Chi tiết cụm ElastiCache Valkey/Redis, Endpoint và Port.

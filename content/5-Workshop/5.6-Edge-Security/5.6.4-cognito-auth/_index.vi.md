@@ -18,7 +18,7 @@ Amazon Cognito cung cấp giải pháp quản lý danh tính, xác thực và ph
 
 *   **User Pool ID:** `ap-southeast-1_HQYkeSq33` (đặt tại Singapore Region).
 *   **App client (ứng dụng khách kết nối) settings:**
-    *   **Client ID:** `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>` (chuỗi ký tự ngẫu nhiên dùng định danh frontend React).
+    *   **Client ID:** `4pg1o3cf2tgg4vcu6g4lttinhi` (User Pool ID: `ap-southeast-1_HQYkeSq33`).
     *   **Client Secret:** Đã được thiết lập lưu trữ an toàn để xác thực cookie/session ở Lambda backend.
 *   **Hosted UI configuration:**
     *   **Allowed callback URLs (Các đường dẫn chuyển hướng phản hồi đăng nhập):**
@@ -70,9 +70,3 @@ Amazon Cognito cung cấp giải pháp quản lý danh tính, xác thực và ph
 
 ### Kết luận ngắn
 Amazon Cognito User Pool đã hoạt động ổn định, thực hiện cấp phát JWT token an toàn, hỗ trợ giao diện đăng nhập Hosted UI chuẩn hóa và quản lý người dùng tập trung hiệu quả.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-cognito-config.png` - Cấu hình Hosted UI, Client ID và Callback URLs của Cognito.
-2.  `finvantage-cognito-users.png` - Danh sách Users đăng ký thành công trên Cognito (đã bôi mờ email bảo mật).

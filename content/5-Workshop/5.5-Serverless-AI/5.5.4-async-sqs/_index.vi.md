@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon SQS và Worker Lambda"
 date: 2026-07-20
 weight: 4
@@ -40,8 +40,3 @@ Quá trình gọi Amazon Textract bóc tách ảnh và gửi text thô sang Amaz
 
 ### Kết luận ngắn
 Mô hình hàng đợi bất đồng bộ SQS và DLQ là mảnh ghép hoàn hảo giúp FinVantage sẵn sàng scale-up (mở rộng quy mô) để đáp ứng hàng triệu người dùng đồng thời trong tương lai mà không lo sập hệ thống.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `06-01-textract-processing.png` - Tiến trình Textract xử lý bóc tách hóa đơn.

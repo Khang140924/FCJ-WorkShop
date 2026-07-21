@@ -16,7 +16,7 @@ Trang này sẽ hướng dẫn các bạn thực hiện một kịch bản kiể
 ### Kịch bản kiểm thử thực tế (Live Demo)
 
 **Bước 1: Truy cập ứng dụng và đăng nhập**
-*   Mở trình duyệt web, truy cập vào địa chỉ: `https://main.dp5hgt6k889yu.amplifyapp.com`.
+*   Mở trình duyệt web, truy cập vào địa chỉ: `https://main.dp5hgt6k889yu.amplifyapp.com/?v=3`.
 *   Click nút **Đăng nhập**. Hệ thống sẽ chuyển hướng sang giao diện **Cognito Hosted UI** (trang đăng nhập được AWS lưu trữ sẵn).
 *   Nhập tài khoản email và mật khẩu đã đăng ký → Đăng nhập thành công → Trình duyệt được redirect (chuyển hướng) về trang chủ Dashboard của FinVantage.
 
@@ -35,7 +35,17 @@ Trang này sẽ hướng dẫn các bạn thực hiện một kịch bản kiể
 
 **Bước 4: Kiểm tra kết quả trên giao diện**
 *   Mở trang chi tiết hóa đơn vừa import → Xác minh các trường thông tin đã được AI phân tích chính xác: Tên nhà cung cấp (Vendor), Tổng tiền (Total), Ngày giao dịch (Date), Danh mục chi tiêu (Category) và Lời khuyên tài chính từ AI (AI Advice).
-*   Quay lại trang **Dashboard** → Xác minh biểu đồ chi tiêu đã cập nhật số liệu mới.
+---
+
+### Video Demo Thực tế Hệ thống (Live Demonstration Video)
+
+<div align="center">
+  <video width="100%" controls preload="metadata">
+    <source src="../../../images/demo.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ thẻ video HTML5.
+  </video>
+  <p><i>Video 5.8: Minh họa toàn trình các chức năng thực tế trên nền tảng FinVantage.</i></p>
+</div>
 
 ---
 
@@ -59,9 +69,3 @@ Quá trình triển khai kiến trúc Serverless kết hợp AI đã mang lại 
 
 ### Kết luận ngắn
 Hệ thống FinVantage đã hoạt động end-to-end hoàn chỉnh: Từ đăng nhập bảo mật, upload hóa đơn, bóc tách AI tự động đến hiển thị Dashboard chi tiêu trực quan. Kiến trúc Serverless kết hợp AI đã chứng minh khả năng co giãn, tiết kiệm chi phí và tự động hóa xử lý nghiệp vụ hiệu quả.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-live-demo-result.png` - Kết quả hóa đơn đã được AI phân tích trên giao diện.
-2.  `finvantage-dashboard-summary.png` - Dashboard tổng hợp chi tiêu hiển thị biểu đồ.

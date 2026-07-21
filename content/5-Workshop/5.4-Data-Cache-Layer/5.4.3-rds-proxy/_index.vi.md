@@ -29,23 +29,16 @@ Amazon RDS Proxy đóng vai trò làm lớp đệm trung gian quản lý kết n
 **Bước 2:** Click chọn tên RDS Proxy của dự án (thường có tag Name là `finvantage-prod-proxy` hoặc tương đương).
 
 **Bước 3:** Tại tab **Summary** (Tóm tắt) hoặc trang chi tiết chung, kiểm tra và xác minh:
-*   **Proxy endpoint:** Ghi nhận địa chỉ kết nối của proxy: `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>`.
-*   **Status:** Trạng thái hiển thị là `Available` (Sẵn sàng hoạt động).
-*   **Require TLS:** Cấu hình phải hiển thị là `True` (Bắt buộc mã hóa đường truyền bảo mật).
+*   **Proxy endpoint:** Ghi nhận địa chỉ kết nối `finvantage-production-infra-postgres.proxy-cn0eow6w22pv.ap-southeast-1.rds.amazonaws.com`.
+*   **Status:** Trạng thái hiển thị là `Available` (Khả dụng).
+*   **Require TLS:** Cấu hình bắt buộc mã hóa kết nối TLS hiển thị là `True` (Đã bật).
 *   **VPC, Subnets & Security groups:** Đảm bảo Proxy nằm trong VPC của dự án, đặt trong các Private Subnets và được gắn nhóm bảo mật `RDS-Proxy-SG`.
 
 **Bước 4:** Tại phần **Connections** (Kết nối), kiểm tra mục **Secrets Manager secrets**:
-*   Xác nhận tên Secrets Manager secret chứa credentials (thông tin đăng nhập) database đã được liên kết chính xác: `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>`.
+*   Xác nhận tên Secrets Manager secret chứa credentials database đã liên kết chính xác: `DatabaseSecret-ZszrSgcgcZU8-8kVGUh`.
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → RDS → Proxies → click chọn Proxy của FinVantage → phần Summary/Connections.  
-> Nội dung cần thấy: Proxy Endpoint, trạng thái Available, Require TLS: True và Secrets Manager secret được liên kết.  
-> Tên ảnh đề xuất: `finvantage-rds-proxy-details.png`  
-> Chú thích: “Hình 5.4.3a. Cấu hình chi tiết RDS Proxy (Endpoint, Require TLS, Secrets Manager) của dự án FinVantage.”
-
----
 
 **Bước 5:** Tại menu con bên trái của trang Proxy hoặc tab **Targets** (Đích đến):
 *   Click chọn target group mặc định `default`.
@@ -54,13 +47,6 @@ Amazon RDS Proxy đóng vai trò làm lớp đệm trung gian quản lý kết n
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → RDS → Proxies → click chọn Proxy của FinVantage → tab Targets / Target group.  
-> Nội dung cần thấy: Target database instance của dự án và cột Target Health hiển thị trạng thái Available / Healthy.  
-> Tên ảnh đề xuất: `finvantage-rds-proxy-target-health.png`  
-> Chú thích: “Hình 5.4.3b. Trạng thái kết nối Target Group Health kết nối khỏe mạnh của RDS Proxy đến PostgreSQL Database.”
-
----
 
 ### Các lỗi thường gặp và cách xử lý
 *   **Lỗi: `RDS Proxy Target status is Unavailable`**
@@ -69,9 +55,3 @@ Amazon RDS Proxy đóng vai trò làm lớp đệm trung gian quản lý kết n
 
 ### Kết luận ngắn
 RDS Proxy đã được cấu hình hoạt động ổn định, bảo đảm luồng kết nối từ các API Lambda xuống PostgreSQL luôn được định tuyến an toàn và chống quá tải.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-rds-proxy-details.png` - Proxy Endpoint, Require TLS và Secrets Manager kết nối.
-2.  `finvantage-rds-proxy-target-health.png` - Target Health kết nối giữa Proxy và PostgreSQL DB.

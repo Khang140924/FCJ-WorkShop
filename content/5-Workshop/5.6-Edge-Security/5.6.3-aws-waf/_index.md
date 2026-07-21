@@ -1,4 +1,4 @@
----
+﻿---
 title: "AWS WAF (Web Application Firewall)"
 date: 2026-07-20
 weight: 3
@@ -33,12 +33,6 @@ For commercial deployment, FinVantage configures a **Web ACL (Web Access Control
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: Architectural diagram showing AWS WAF protecting CloudFront and API Gateway backends.  
-> Suggested name: `finvantage-waf-architecture.png`  
-> Caption: "Figure 5.6.3. Theoretical architecture diagram of AWS WAF edge protection for FinVantage."
-
----
 
 ### Common Troubleshooting with WAF
 *   **Issue: `Legitimate users encounter HTTP 403 Forbidden`**
@@ -47,8 +41,3 @@ For commercial deployment, FinVantage configures a **Web ACL (Web Access Control
 
 ### Summary
 AWS WAF provides a robust edge security perimeter, protecting FinVantage during commercial scale-out.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-waf-architecture.png` - AWS WAF edge protection architecture diagram.

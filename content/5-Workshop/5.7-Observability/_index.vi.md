@@ -1,4 +1,4 @@
----
+﻿---
 title: "Giám sát và Quan sát hệ thống"
 date: 2026-07-20
 weight: 7

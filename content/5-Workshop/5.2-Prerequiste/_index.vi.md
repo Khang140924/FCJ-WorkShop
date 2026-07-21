@@ -1,4 +1,4 @@
----
+﻿---
 title: "Chuẩn bị môi trường"
 date: 2026-07-20
 weight: 2

@@ -1,4 +1,4 @@
----
+﻿---
 title: "AWS WAF (Tường lửa ứng dụng)"
 date: 2026-07-20
 weight: 3
@@ -33,12 +33,6 @@ Nếu triển khai thương mại, hệ thống FinVantage sẽ cấu hình mộ
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: Sơ đồ hoặc hình vẽ minh họa luồng hoạt động bảo vệ của AWS WAF đứng chặn trước CloudFront và API Gateway để bảo vệ backend Lambda.  
-> Tên ảnh đề xuất: `finvantage-waf-architecture.png`  
-> Chú thích: “Hình 5.6.3. Sơ đồ lý thuyết kiến trúc bảo vệ biên tích hợp AWS WAF bảo vệ ứng dụng FinVantage.”
-
----
 
 ### Các lỗi thường gặp và cách xử lý khi chạy WAF
 *   **Lỗi: `Người dùng thật bị chặn nhầm (HTTP 403 Forbidden)`**
@@ -47,8 +41,3 @@ Nếu triển khai thương mại, hệ thống FinVantage sẽ cấu hình mộ
 
 ### Kết luận ngắn
 AWS WAF là chốt chặn bảo mật vững chắc ở tầng biên, đóng vai trò bảo vệ quan trọng cho FinVantage khi ứng dụng tiến hành mở rộng thương mại quy mô lớn.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-waf-architecture.png` - Sơ đồ kiến trúc luồng bảo vệ của AWS WAF (Hình minh họa).

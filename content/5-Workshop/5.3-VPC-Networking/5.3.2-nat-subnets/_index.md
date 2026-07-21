@@ -1,4 +1,4 @@
----
+﻿---
 title: "Public and Private Subnets"
 date: 2026-07-20
 weight: 2
@@ -35,13 +35,6 @@ For maximum cloud security, an AWS network topology is partitioned into two dist
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → VPC → Subnets.  
-> Content: List of subnets showing Name, IPv4 CIDR, and Availability Zones (at least 2 AZs like ap-southeast-1a and ap-southeast-1b).  
-> Suggested name: `finvantage-subnets.png`  
-> Caption: "Figure 5.3.2a. List of Public and Private Subnets distributed across Availability Zones."
-
----
 
 #### 2. Verify NAT Gateway
 
@@ -56,13 +49,6 @@ For maximum cloud security, an AWS network topology is partitioned into two dist
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → VPC → NAT Gateways.  
-> Content: NAT Gateway configuration details showing Available state, Elastic IP, and Public Subnet attachment.  
-> Suggested name: `finvantage-nat-gateway.png`  
-> Caption: "Figure 5.3.2b. NAT Gateway configuration with Elastic IP for Private Subnet outbound connectivity."
-
----
 
 ### Common Troubleshooting
 *   **Issue: `Lambda timeout when calling Bedrock API`**
@@ -71,9 +57,3 @@ For maximum cloud security, an AWS network topology is partitioned into two dist
 
 ### Summary
 Subnets and NAT Gateway infrastructure are ready, providing secure connectivity for FinVantage backend workloads.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-subnets.png` - List of Public and Private Subnets.
-2.  `finvantage-nat-gateway.png` - NAT Gateway configuration details.

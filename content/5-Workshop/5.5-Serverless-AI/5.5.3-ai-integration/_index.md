@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI Integration (Textract & Bedrock)"
 date: 2026-07-20
 weight: 3
@@ -100,13 +100,6 @@ Once cross-account integration is established, uploading a receipt allows you to
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → CloudWatch → Log groups → Select Log group for `ocrInvoice` or `analyzeInvoice`.  
-> Content: Log execution entries recording Textract OCR success or Bedrock AI JSON output.  
-> Suggested name: `finvantage-cloudwatch-ocr-logs.png`  
-> Caption: "Figure 5.5.3d. CloudWatch Logs verifying successful Textract OCR and Bedrock AI analysis output."
-
----
 
 ### Common Troubleshooting
 *   **Error: `AccessDeniedException: User: ... is not authorized to perform: sts:AssumeRole`**
@@ -115,11 +108,3 @@ Once cross-account integration is established, uploading a receipt allows you to
 
 ### Summary
 By configuring secure cross-account role delegation, FinVantage successfully integrates with Amazon Bedrock Claude 3.5 Sonnet for automated receipt analysis.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-s3-trigger-ocr.png` - S3 event trigger on OCR Lambda.
-2.  `finvantage-bedrock-trust-relationship.png` - Trust Relationship policy on Bedrock Account.
-3.  `finvantage-lambda-sts-policy.png` - AssumeRole policy on Primary Account Lambda role.
-4.  `finvantage-cloudwatch-ocr-logs.png` - Successful AI execution logs in CloudWatch Logs.

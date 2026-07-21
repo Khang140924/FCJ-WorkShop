@@ -87,9 +87,3 @@ Upload file ZIP vừa đóng gói lên giao diện quản lý ứng dụng `FinV
 
 ### Kết luận ngắn
 AWS Amplify Hosting đã triển khai thành công mã nguồn Frontend, đồng bộ hoàn chỉnh với API backend và cấu hình các quy tắc định hướng route ảo an toàn.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-amplify-deployments.png` - Lịch sử deploy thành công của Frontend.
-2.  `finvantage-amplify-redirects.png` - Cấu hình bảng Rewrites and redirects của Amplify.

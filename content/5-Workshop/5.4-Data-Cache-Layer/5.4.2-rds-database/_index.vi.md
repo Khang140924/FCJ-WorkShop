@@ -42,7 +42,7 @@ Cơ sở dữ liệu quan hệ là nơi lưu trữ toàn bộ dữ liệu tài c
 
 **Bước 3:** Tại tab **Connectivity & security** (Kết nối & bảo mật), xác minh các thông số:
 *   **Status:** Trạng thái hiển thị là `Available` (Sẵn sàng hoạt động).
-*   **Endpoint:** Ghi nhận địa chỉ endpoint kết nối của database: `<LẤY GIÁ TRỊ THỰC TẾ TỪ AWS CONSOLE>`.
+*   **Endpoint:** Ghi nhận địa chỉ endpoint kết nối nội bộ của database PostgreSQL (Port `5432`).
 *   **Port:** Cổng kết nối hiển thị chính xác là `5432` (cổng mặc định của PostgreSQL).
 *   **Publicly accessible:** Trạng thái hiển thị là **No** (Không mở công khai ra Internet).
 *   **Security groups:** Liên kết đúng với nhóm bảo mật `Database-SG`.
@@ -60,13 +60,6 @@ Cơ sở dữ liệu quan hệ là nơi lưu trữ toàn bộ dữ liệu tài c
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → RDS → Databases → click chọn database của FinVantage → tab Configuration.  
-> Nội dung cần thấy: Engine PostgreSQL, thông số Deletion protection hiển thị Enabled, và thông số Encryption hiển thị Enabled.  
-> Tên ảnh đề xuất: `finvantage-rds-configuration.png`  
-> Chú thích: “Hình 5.4.2b. Cấu hình chi tiết bảo vệ dữ liệu (Deletion Protection & Encryption) của RDS PostgreSQL.”
-
----
 
 **Bước 5:** Chuyển sang tab **Maintenance & backups** (Bảo trì & sao lưu):
 *   Xác minh cấu hình **Backups** tự động đang được bật và có thời gian lưu trữ tối thiểu 7 ngày.
@@ -83,9 +76,3 @@ Hàm Lambda backend của FinVantage sẽ không kết nối trực tiếp đế
 
 ### Kết luận ngắn
 Database PostgreSQL đã được thiết lập bảo mật an toàn, mã hóa dữ liệu tĩnh đầy đủ và sẵn sàng kết nối bảo mật qua RDS Proxy.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-rds-connectivity.png` - Endpoint, cổng kết nối 5432 và bảo mật kết nối.
-2.  `finvantage-rds-configuration.png` - Trạng thái cấu hình PostgreSQL, Encryption và Deletion Protection.

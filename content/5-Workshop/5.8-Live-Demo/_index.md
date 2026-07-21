@@ -16,7 +16,7 @@ This page guides you through executing a complete end-to-end live testing scenar
 ### Live Demo Scenario
 
 **Step 1: Access Web Application & Log In**
-*   Open your browser and navigate to: `https://main.dp5hgt6k889yu.amplifyapp.com`.
+*   Open your browser and navigate to: `https://main.dp5hgt6k889yu.amplifyapp.com/?v=3`.
 *   Click **Sign In**. The browser redirects to the AWS-hosted **Cognito Hosted UI** login page.
 *   Enter registered email credentials → Log in successfully → The browser redirects back to the main FinVantage Dashboard.
 
@@ -35,7 +35,17 @@ This page guides you through executing a complete end-to-end live testing scenar
 
 **Step 4: Verify Results on UI**
 *   Open the invoice detail page → Verify fields parsed accurately by AI: Vendor Name, Total Amount, Date, Spending Category, and AI Financial Advice.
-*   Return to the **Dashboard** → Confirm spending charts reflect updated transaction data.
+---
+
+### Live System Demonstration Video
+
+<div align="center">
+  <video width="100%" controls preload="metadata">
+    <source src="../../images/demo.mp4" type="video/mp4">
+    Your browser does not support the HTML5 video player.
+  </video>
+  <p><i>Video 5.8: End-to-end live demonstration of the FinVantage platform.</i></p>
+</div>
 
 ---
 
@@ -59,9 +69,3 @@ Deploying a Serverless AI architecture yields valuable engineering insights:
 
 ### Summary
 The FinVantage platform operates end-to-end: from secure authentication and receipt upload to automated AI extraction and financial dashboard visualization. Serverless AI architectures demonstrate exceptional elasticity, cost efficiency, and business workflow automation.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-live-demo-result.png` - Invoice detail page parsed by AI.
-2.  `finvantage-dashboard-summary.png` - Executive spending summary dashboard chart.

@@ -1,4 +1,4 @@
----
+﻿---
 title: "AWS X-Ray và CloudTrail"
 date: 2026-07-20
 weight: 2
@@ -30,10 +30,7 @@ AWS X-Ray giải quyết bài toán này thông qua:
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: Sơ đồ Service Map mẫu của AWS X-Ray, minh họa luồng request kết nối giữa API Gateway, Lambda và các dịch vụ S3/DynamoDB/Bedrock.  
-> Tên ảnh đề xuất: `finvantage-xray-service-map.png`  
-> Chú thích: “Hình 5.7.2a. Bản đồ liên kết dịch vụ (Service Map) trực quan hóa các nút mạng của AWS X-Ray (Hình minh họa).”
+![Hình 5.7.2a. Bản đồ liên kết dịch vụ (Service Map) trực quan hóa các nút mạng của AWS X-Ray khi thực thi luồng ocrInvoice.](../../../images/finvantage-xray-service-map.jpg)
 
 ---
 
@@ -45,10 +42,7 @@ Bên cạnh việc theo dõi hiệu năng của code (CloudWatch) và truy vết
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: Giao diện AWS CloudTrail Console → Event history, hiển thị danh sách các API events (như GetBucketPolicy, AssumeRole, InvokeModel).  
-> Tên ảnh đề xuất: `finvantage-cloudtrail-events.png`  
-> Chú thích: “Hình 5.7.2b. Nhật ký kiểm toán các thao tác API được ghi nhận tự động trên AWS CloudTrail (Hình minh họa).”
+![Hình 5.7.2b. Nhật ký kiểm toán các thao tác API liên quan tới s3.amazonaws.com được ghi nhận trên AWS CloudTrail.](../../../images/finvantage-cloudtrail-events.jpg)
 
 ---
 
@@ -59,9 +53,3 @@ Bên cạnh việc theo dõi hiệu năng của code (CloudWatch) và truy vết
 
 ### Kết luận ngắn
 AWS X-Ray và CloudTrail là hai công cụ cao cấp giúp nâng cao độ tin cậy và mức độ an toàn thông tin của FinVantage lên chuẩn doanh nghiệp lớn.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-xray-service-map.png` - Bản đồ Service Map mẫu của AWS X-Ray (Hình minh họa).
-2.  `finvantage-cloudtrail-events.png` - Event history ghi log API mẫu của CloudTrail (Hình minh họa).

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon CloudWatch"
 date: 2026-07-21
 weight: 1
@@ -69,13 +69,6 @@ Chúng ta thiết lập một Dashboard tập trung giúp theo dõi sức khỏe
 
 ---
 
-> 📸 HÌNH CẦN THÊM  
-> Chụp màn hình: AWS Console → CloudWatch → Dashboards → Chọn `finvantage-prod-dashboard` vừa tạo.  
-> Nội dung cần thấy: Giao diện Dashboard hiển thị đầy đủ các biểu đồ biểu diễn metrics Invocations, Duration của Lambda, số lượng API requests, và tải CPU của database.  
-> Tên ảnh đề xuất: `finvantage-cloudwatch-dashboard.png`  
-> Chú thích: “Hình 5.7.1b. Giao diện bảng điều khiển trung tâm CloudWatch Dashboard giám sát hệ thống FinVantage.”
-
----
 
 > ⚠️ **Lưu ý bảo mật cực kỳ quan trọng:** Khi chụp ảnh màn hình các trang giao diện AWS Console để làm báo cáo, bạn nên sử dụng công cụ bôi mờ (blur) hoặc cắt bớt mã **AWS Account ID** (nằm ở góc trên bên phải màn hình console) để đảm bảo an toàn thông tin tài khoản của bạn.
 
@@ -86,9 +79,3 @@ Chúng ta thiết lập một Dashboard tập trung giúp theo dõi sức khỏe
 
 ### Kết luận ngắn
 Hệ thống Amazon CloudWatch đã được thiết lập ghi nhật ký và chỉ số đầy đủ, giúp quản trị viên dễ dàng nắm bắt trạng thái hệ thống FinVantage theo thời gian thực.
-
----
-
-### Danh sách hình ảnh cần chụp cho báo cáo
-1.  `finvantage-cloudwatch-logs.png` - Chi tiết log stream chạy thành công của backend Lambda.
-2.  `finvantage-cloudwatch-dashboard.png` - Các biểu đồ chỉ số hiệu năng trên CloudWatch Dashboard.

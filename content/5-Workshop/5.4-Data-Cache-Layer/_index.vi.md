@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tầng Dữ liệu và Bộ nhớ đệm"
 date: 2026-07-20
 weight: 4

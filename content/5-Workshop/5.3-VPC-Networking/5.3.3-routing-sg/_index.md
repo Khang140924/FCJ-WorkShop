@@ -1,4 +1,4 @@
----
+﻿---
 title: "Routing & Security Groups"
 date: 2026-07-20
 weight: 3
@@ -10,9 +10,6 @@ pre: " <b> 5.3.3. </b> "
 Routing tables direct network traffic inside the VPC.
 *   **Public Route Table:** Associated with 2 Public Subnets. Add Rule: Route `0.0.0.0/0` (all outbound internet traffic) with Target set to **Internet Gateway (IGW)**.
 *   **Private Route Table:** Associated with 2 Private Subnets. Add Rule: Route `0.0.0.0/0` with Target set to **NAT Gateway**. This rule allows Lambda functions to privately call external AI APIs.
-
-> 📸 **[IMAGE REMINDER]:** Screenshot Private Subnet Route Table showing outbound traffic directed to `nat-...`.  
-> *Markdown:* `![Private Route Table](../../../images/private-route.png)`
 
 ### 2. Security Groups Configuration (Firewall Rules)
 Instead of traditional IP filtering, AWS Cloud uses Security Groups (SGs).

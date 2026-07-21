@@ -1,4 +1,4 @@
----
+﻿---
 title: "Serverless and Artificial Intelligence"
 date: 2026-07-20
 weight: 5

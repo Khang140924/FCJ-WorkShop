@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon Cognito"
 date: 2026-07-20
 weight: 4
@@ -70,9 +70,3 @@ Amazon Cognito provides user identity, authentication, and authorization service
 
 ### Summary
 Amazon Cognito User Pool is operational, issuing secure JWT tokens, hosting standardized login interfaces, and managing user access.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-cognito-config.png` - Hosted UI configuration, Client ID, and Callback URLs.
-2.  `finvantage-cognito-users.png` - Registered user accounts list (emails masked).

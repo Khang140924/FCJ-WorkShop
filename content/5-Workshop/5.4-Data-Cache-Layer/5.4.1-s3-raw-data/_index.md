@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon S3 Receipt Storage"
 date: 2026-07-20
 weight: 1
@@ -104,11 +104,3 @@ Amazon S3 provides highly durable and secure object storage. For FinVantage, S3 
 
 ### Summary
 Amazon S3 receipt storage is securely configured with CORS rules and Event Notification triggers, ready for automated OCR data extraction pipelines.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-s3-permissions.png` - Block public access verification.
-2.  `finvantage-s3-cors.png` - CORS rules configuration.
-3.  `finvantage-s3-trigger.png` - Event Notification trigger to Lambda.
-4.  `finvantage-s3-objects.png` - Actual receipt objects in uploads/ directory.

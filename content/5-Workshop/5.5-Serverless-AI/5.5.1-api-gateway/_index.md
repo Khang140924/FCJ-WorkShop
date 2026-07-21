@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon API Gateway"
 date: 2026-07-20
 weight: 1
@@ -42,13 +42,6 @@ Amazon API Gateway serves as the single edge entry point accepting incoming HTTP
 
 ---
 
-> 📸 PHOTO TO ADD  
-> Screenshot: AWS Console → API Gateway → APIs → Select `stcs2116b8` → Resources/Routes.  
-> Content: List of API route paths, HTTP methods, and Lambda Integration bindings.  
-> Suggested name: `finvantage-api-gateway-routes.png`  
-> Caption: "Figure 5.5.1. API Routes and Lambda Integration bindings for FinVantage."
-
----
 
 **Step 4:** Click **Stages** on the left menu:
 *   Select stage **`prod`**.
@@ -67,8 +60,3 @@ When invoking backend APIs, API Gateway and Lambda return standard status codes:
 
 ### Summary
 Amazon API Gateway is properly configured with `prod` stage routing, serving as the front door for FinVantage APIs.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-api-gateway-routes.png` - API Routes list and Lambda Integration bindings.

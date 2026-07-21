@@ -1,4 +1,4 @@
----
+﻿---
 title: "Edge Security, Authentication and Hosting"
 date: 2026-07-20
 weight: 6

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Định tuyến & Security Groups"
 date: 2026-07-20
 weight: 3
@@ -10,9 +10,6 @@ pre: " <b> 5.3.3. </b> "
 Định tuyến giống như biển báo giao thông, chỉ đường cho dữ liệu đi đúng hướng.
 *   **Public Route Table:** Gắn vào 2 Public Subnets. Thêm Rule: Định tuyến `0.0.0.0/0` (tất cả traffic ra Internet) trỏ Target về **Internet Gateway (IGW)**.
 *   **Private Route Table:** Gắn vào 2 Private Subnets. Thêm Rule: Định tuyến `0.0.0.0/0` trỏ Target về **NAT Gateway**. Nhờ rule này, Lambda mới có thể âm thầm gọi API AI từ mạng nội bộ.
-
-> 📸 **[NHẮC NHỞ CHÈN ẢNH]:** Chụp màn hình giao diện Route Table của Private Subnet, cho thấy traffic đi ra ngoài được hướng qua `nat-...`.
-> *Mã Markdown:* `![Private Route Table](../../../images/private-route.png)`
 
 ### 2. Thiết lập Security Groups (Tường lửa)
 Thay vì chặn IP truyền thống, kiến trúc Cloud cho phép chặn theo nhóm bảo mật (Security Group - SG).

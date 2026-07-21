@@ -1,4 +1,4 @@
----
+﻿---
 title: "Workshop Overview"
 date: 2026-07-20
 weight: 1

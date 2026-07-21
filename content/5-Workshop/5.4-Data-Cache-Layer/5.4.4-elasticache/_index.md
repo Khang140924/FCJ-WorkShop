@@ -1,4 +1,4 @@
----
+﻿---
 title: "ElastiCache Valkey/Redis"
 date: 2026-07-20
 weight: 4
@@ -57,8 +57,3 @@ Backend Lambda functions read the `REDIS_URL` environment variable (formatted as
 
 ### Summary
 The Valkey/Redis cluster is active, providing high-speed state caching for automated receipt processing workflows.
-
----
-
-### Report Screenshot Checklist
-1.  `finvantage-elasticache.png` - ElastiCache Valkey/Redis cluster details, Endpoint, and Port.

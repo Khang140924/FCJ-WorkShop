@@ -19,4 +19,4 @@ Key takeaways:
 
 ![Blog 3](../../images/blog3.png)
 
-[Link to Blog 3] *Pending approval.
+[Link to Blog 3](https://www.facebook.com/share/p/1QrY2QS5HF/)

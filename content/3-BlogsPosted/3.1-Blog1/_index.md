@@ -18,6 +18,6 @@ Key takeaways:
 * Automated compliance: Completely eliminate human error. Automated pipelines will download invoices, rename files according to proper standards, and securely store them in document management systems, ensuring all data is always ready for audits.
 * Accelerated month-end closure: This process can be scheduled to run automatically at the end of each month. Financial professionals are freed from tedious administrative tasks to focus on strategic cost optimization analysis.
 
-![Blog 1 Post](images/blog1.png)
+![Blog 1 Post](../../images/blog1.png)
 
 [Link to Blog 1 Post](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198776387553988/)

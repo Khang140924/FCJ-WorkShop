@@ -20,6 +20,6 @@ Các điểm chính cần nắm:
 
 
 
-![Bài Blog 2](images/blog2.png)
+![Bài Blog 2](../../../images/blog2.png)
 
 [Đường Link dẫn đến bài Blog 2](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2205004010264559/)

@@ -36,5 +36,3 @@ Trong bài Lab này, bạn sẽ tự tay thực hành thiết kế, cấu hình 
 7. [Giám sát & Cảnh báo](5.7-observability/): Theo dõi CloudWatch, truy vết X-Ray và thiết lập cảnh báo SNS.
 8. [Live Demo & Đúc kết kinh nghiệm](5.8-live-demo/): Trải nghiệm thực tế hệ thống và rút ra các bài học tối ưu.
 9. [Dọn dẹp tài nguyên](5.9-cleanup/): Phá hủy hạ tầng an toàn để triệt tiêu chi phí phát sinh.
-
-> 📸 **[NHẮC NHỞ CHÈN ẢNH]:** Ở trang tổng này, bạn **không bắt buộc** phải chèn ảnh. Tuy nhiên, nếu muốn trang bìa đẹp hơn, bạn có thể chèn một logo AWS hoặc một ảnh minh họa dự án FinVantage thật ngầu vào ngay dưới tiêu đề chính.

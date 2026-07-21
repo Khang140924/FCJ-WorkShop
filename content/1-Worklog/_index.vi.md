@@ -18,13 +18,13 @@ pre: " <b> 1. </b> "
 
 **Tuần 6:** [Nghiên cứu và triển khai hệ thống dịch vụ cơ sở dữ liệu Amazon RDS và Amazon DynamoDB](1.6-week6/)
 
-**Tuần 7:** [Nghiên cứu mô hình điện toán không máy chủ (Serverless Architecture) và các dịch vụ tích hợp](1.7-week7/)[cite: 2]
+**Tuần 7:** [Nghiên cứu mô hình điện toán không máy chủ (Serverless Architecture) và các dịch vụ tích hợp](1.7-week7/)
 
-**Tuần 8:** [Khám phá hệ sinh thái dịch vụ Trí tuệ nhân tạo (Managed AI Services) trên AWS](1.8-week8/)[cite: 2]
+**Tuần 8:** [Khám phá hệ sinh thái dịch vụ Trí tuệ nhân tạo (Managed AI Services) trên AWS](1.8-week8/)
 
-**Tuần 9:** [Thiết kế kiến trúc dự án FinVantage, cấu hình cảnh báo Amazon SNS và CloudWatch](1.9-week9/)[cite: 3]
+**Tuần 9:** [Thiết kế kiến trúc dự án FinVantage, cấu hình cảnh báo Amazon SNS và CloudWatch](1.9-week9/)
 
-**Tuần 10:** [Hiện thực hóa mã nguồn Backend Serverless và tích hợp dịch vụ qua AWS SDK](1.10-week10/)[cite: 3]
+**Tuần 10:** [Hiện thực hóa mã nguồn Backend Serverless và tích hợp dịch vụ qua AWS SDK](1.10-week10/)
 
 **Tuần 11:** [Triển khai hệ thống lên hạ tầng AWS, cấu hình bảo mật IAM Role và kiểm thử toàn trình](1.11-week11/)
 

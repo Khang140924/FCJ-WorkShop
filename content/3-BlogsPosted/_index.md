@@ -12,4 +12,5 @@ This blog introduces a new solution from AWS through programmatic APIs (`list-in
 ### [Blog 2 - OPTIMIZING TESTING ENVIRONMENTS WITH AMAZON EKS AND VCLUSTER](3.2-Blog2/)
 This blog presents a solution combining Amazon EKS and vCluster to create ultra-lightweight virtual Kubernetes clusters, solving the slow and costly challenge of provisioning QA/Testing environments. This solution reduces environment creation time to under 5 minutes, optimizes resources through centralized operations, cuts infrastructure costs by up to 70%, and empowers development teams with flexible self-service.
 
-### [Blog 3 - ...](3.3-Blog3/)
+### [Blog 3 - ENHANCING WEB APPLICATION SECURITY WITH AMAZON CLOUDFRONT VPC ORIGINS](3.3-Blog3/)
+This blog introduces the Amazon CloudFront VPC Origins feature, which addresses security challenges by allowing CloudFront to connect directly to backend resources (ALB, EC2, ECS) located in a private subnet. This solution completely hides the system from the public Internet following a Zero Trust model, simplifies network architecture by eliminating NAT Gateways, maintains global delivery performance, and integrates effectively with AWS WAF and AWS Shield to establish a robust multi-layer defense system.
